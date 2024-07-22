@@ -97,6 +97,13 @@ Aplikasi ini akan mengintegrasikan teknologi kecerdasan buatan (AI) pihak ketiga
 
 ![image](https://github.com/user-attachments/assets/47f0f98c-8fd2-4c24-b3fa-5a9229c9fa1e)
 
+
+
+contact me:
+Whatsapp >>> 082314969109
+email    >>> putrapongkowulu@gmail.com
+
+
 ![image](https://github.com/user-attachments/assets/bee90b77-7fcc-4ef1-a841-8ef390ecfc1c)
 
 
