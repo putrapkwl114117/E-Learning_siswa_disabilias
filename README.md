@@ -1,7 +1,9 @@
 Spesifikasi Persyaratan Perangkat Lunak
 untuk
 DistStudy
+
 Versi 1.0 disetujui
+
 25 Maret 2024 
 
 
