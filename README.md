@@ -93,5 +93,11 @@ Aplikasi ini akan mengintegrasikan teknologi kecerdasan buatan (AI) pihak ketiga
 ![image](https://github.com/user-attachments/assets/bc2cb4c8-2a3d-40aa-862e-5f23f0c292c9)
 
 
+![image](https://github.com/user-attachments/assets/47f0f98c-8fd2-4c24-b3fa-5a9229c9fa1e)
+
+![image](https://github.com/user-attachments/assets/bee90b77-7fcc-4ef1-a841-8ef390ecfc1c)
+
+
+
 
 
