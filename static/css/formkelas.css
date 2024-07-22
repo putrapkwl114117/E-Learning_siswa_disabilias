@@ -1,0 +1,239 @@
+/* Styling untuk formulir kelas */
+.formKelas {
+    background-color: #669752;
+    border-radius: 5px;
+    padding: 18px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.836);
+    display: none;
+    z-index: 999;
+}
+
+.container1 {
+    position: fixed;
+    top: 26%; /* pindahkan ke sedikit ke atas */
+    left: 50%; /* pindahkan ke tengah horizontal */
+    transform: translate(-50%, -25%); /* biarkan di tengah */
+    padding: 5px; /* Padding untuk konten */
+    border-radius: 15px; /* Border radius */
+    width: 100%; /* Tetapkan lebar tetap */
+    max-width: 25%; /* Lebar maksimum konten */
+    height: auto; /* Tinggi otomatis */
+    max-height: 40%; /* Tinggi maksimum konten */
+    word-wrap: break-word; /* Bungkus teks panjang */
+    overflow-wrap: break-word; /* Bungkus teks panjang */
+    z-index: 99999999;
+}
+.container2 {
+    position: fixed;
+    top: 26%; /* pindahkan ke sedikit ke atas */
+    left: 50%; /* pindahkan ke tengah horizontal */
+    transform: translate(-50%, -25%); /* biarkan di tengah */
+    padding: 5px; /* Padding untuk konten */
+    border-radius: 15px; /* Border radius */
+    width: 100%; /* Tetapkan lebar tetap */
+    max-width: 25%; /* Lebar maksimum konten */
+    height: auto; /* Tinggi otomatis */
+    max-height: 40%; /* Tinggi maksimum konten */
+    word-wrap: break-word; /* Bungkus teks panjang */
+    overflow-wrap: break-word; /* Bungkus teks panjang */
+    z-index: 99999999;
+}
+
+#formKelas form {
+    width: 100%;
+}
+#formKelas1 form {
+    width: 100%;
+}
+.btn{
+    margin-left: 357px;
+}
+
+.btn-close {
+    position: absolute;
+    top: 5px; /* Jarak dari bagian atas */
+    right: 5px; /* Jarak dari bagian kanan */
+    background-color: transparent; /* Background transparan */
+    border: none; /* Tanpa border */
+    color: #000; /* Warna teks */
+    font-size: 20px; /* Ukuran font */
+    cursor: pointer; /* Ubah kursor ke pointer saat diarahkan */
+}
+.btn-close1 {
+    position: absolute;
+    top: 5px; /* Jarak dari bagian atas */
+    right: 5px; /* Jarak dari bagian kanan */
+    background-color: transparent; /* Background transparan */
+    border: none; /* Tanpa border */
+    color: #000; /* Warna teks */
+    font-size: 20px; /* Ukuran font */
+    cursor: pointer; /* Ubah kursor ke pointer saat diarahkan */
+}
+
+#formKelas .form-group {
+    margin-bottom: 20px;
+}
+#formKelas1 .form-group {
+    margin-bottom: 20px;
+}
+
+#formKelas label {
+    font-weight: bold;
+}
+#formKelas1 label {
+    font-weight: bold;
+}
+
+#formKelas input[type="text"],
+#formKelas select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #39c039;
+    border-radius: 5px;
+}
+#formKelas1 input[type="text"],
+#formKelas1 select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#formKelas button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+#formKelas1 button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+
+#formKelas button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+#formKelas1 button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+ .clock {
+     
+        width: 55px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #2f5e3a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2), 0 -5px 5px rgba(255, 255, 255, 0.1);
+        font-size: 13px;
+        color: #fff;
+        margin-left: -20px;
+        text-align: center;
+        margin-top: -48px;
+        z-index: 999999999999999;
+        /* Adjust the margin-top to align with the calendar */
+        
+    }
+
+    .calendar-wrapper {
+       
+        margin-left: 50px;
+        z-index: 999999;
+        /* Adjust the margin-top to align with the clock */
+    }
+
+    .btn-primary{
+   
+        background-color: #2f5e3a;
+        color: #d4f7ca;
+        width: 85px;
+        margin-top: -48px;
+        padding: 3px;
+        margin-left: -120px;
+        text-align: center;
+        font-size: 14px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 99999999999999;
+    }
+
+      .btn-primary:hover {
+        background-color: #87e09c;
+         color: #d4f7ca;
+    }
+
+     .calendar-wrapper , .cal {
+        background-color: #2f5e3a;
+        color: #d4f7ca;
+        width: 100px;
+        margin-top: -48px;
+        padding: 5px;
+        text-align: center;
+        border-radius: 3px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 999999999999999;
+    }
+
+    .calendar {
+        display: block;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background-color: #4b664c;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.822);
+        transform-style: preserve-3d;
+        z-index: 9999;
+    }
+
+    .calendar.active {
+        display: block;
+    }
+
+    .calendar:hover {
+        animation: dropdown 0.3s ease;
+    }
+
+    @keyframes dropdown {
+        0% {
+            transform: translateY(-10px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    .days {
+        z-index: 999;
+        display: grid;
+        grid-template-columns: repeat(7, 30px);
+        gap: 5px;
+    }
+
+    .day {
+        z-index: 999;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+    }
+
+/* Additional styles to ensure other components shift correctly */
+

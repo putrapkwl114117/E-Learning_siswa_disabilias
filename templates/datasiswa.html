@@ -1,0 +1,125 @@
+<!-- DATA SISWA FORM -->
+<link rel="stylesheet" href="../static/datasiswa.css">
+
+<!-- multistep form data siswa-->
+<div id="myModal4" class="modal9">
+    <div class="modal-content4">
+        <form id="msform" onsubmit="return validateForm()" method="POST" action="/submit-form">
+            <!-- fieldsets -->
+            <fieldset>
+                <h2 class="fs-title">Data Pribadi</h2>
+                <input type="text" name="name" id="name" placeholder="Nama" autocomplete="off" />
+                <div class="form-group">
+                    <label for="jenis_kelamin">Jenis Kelamin:</label>
+                    <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required autocomplete="off">
+                        <option value="">Pilih Jenis Kelamin</option>
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ttl">Tanggal Lahir:</label>
+                    <input type="date" class="form-control" id="ttl" name="ttl" required autocomplete="off">
+                </div>
+                <input type="text" name="agama" id="agama" placeholder="Agama" required autocomplete="off" />
+                <textarea name="address_siswa" id="address_siswa" placeholder="Alamat"></textarea>
+                <div class="form-group">
+                    <label for="jenis_disabilitas">Jenis Disabilitas:</label>
+                    <select class="form-control" id="jenis_disabilitas" name="jenis_disabilitas" required
+                        autocomplete="off">
+                        <option value="">Pilih Jenis Disabilitas</option>
+                        <option value="tuna rungu">Tuna Rungu</option>
+                        <option value="tuna netra">Tuna Netra</option>
+                        <option value="tuna graita">Tuna Garita</option>
+                    </select>
+                </div>
+                <input type="button" name="next" class="next action-button" value="Selanjutnya" />
+            </fieldset>
+
+            <fieldset>
+                <h2 class="fs-title">Data Orang Tua</h2>
+                <input type="text" name="nama_ayah" id="nama_ayah" placeholder="Nama Ayah" required
+                    autocomplete="off" />
+                <input type="text" name="pekerjaan_ayah" id="pekerjaan_ayah" placeholder="Pekerjaan Ayah" required
+                    autocomplete="off" />
+                <input type="text" name="nama_ibu" id="nama_ibu" placeholder="Nama Ibu" required autocomplete="off" />
+                <input type="text" name="pekerjaan_ibu" id="pekerjaan_ibu" placeholder="Pekerjaan Ibu" required
+                    autocomplete="off" />
+                <textarea name="address_ortu" id="address_ortu" placeholder="Alamat"></textarea>
+                <input type="text" name="notlp" id="notlp" placeholder="082xxxxxx" required autocomplete="off" />
+                <input type="button" name="previous" class="previous action-button" value="Sebelumnya" />
+                <input type="button" name="next" class="next action-button" value="Selanjutnya" />
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Data Akademik</h2>
+                <input type="text" name="NISN" id="NISN" placeholder="NISN" required autocomplete="off" />
+                <input type="text" name="kelas" id="kelas" placeholder="Kelas" required autocomplete="off" />
+                <input type="text" name="tahun_masuk" id="tahun_masuk" placeholder="Tahun Masuk" required
+                    autocomplete="off" />
+                <input type="button" name="previous" class="previous action-button" value="Sebelumnya" />
+                <input type="submit" class="action-button" value="Simpan" />
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+
+
+<!-- Tambahkan form untuk menampilkan data siswa -->
+<div class="container5" id="daftarSiswa" style="display: none; overflow-x: auto;">
+    <table class="table5">
+        <thead>
+            <tr>
+                <th>Nama Lengkap</th>
+                <th>Jenis Kelamin</th>
+                <th>Tanggal Lahir</th>
+                <th>Agama</th>
+                <th>Alamat Siswa</th>
+                <th>Jenis Disabilitas</th>
+                <th>Nama Ayah</th>
+                <th>Pekerjaan Ayah</th>
+                <th>Nama Ibu</th>
+                <th>Pekerjaan Ibu</th>
+                <th>Alamat Orang Tua</th>
+                <th>Nomor Telepon</th>
+                <th>NISN</th>
+                <th>Kelas</th>
+                <th>Tahun Masuk</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for siswa in data_siswa %}
+            <tr>
+                <td>{{ siswa.name }}</td>
+                <td>{{ siswa.jenis_kelamin }}</td>
+                <td>{{ siswa.ttl }}</td>
+                <td>{{ siswa.agama }}</td>
+                <td>{{ siswa.address_siswa }}</td>
+                <td>{{ siswa.jenis_disabilitas }}</td>
+                <td>{{ siswa.nama_ayah }}</td>
+                <td>{{ siswa.pekerjaan_ayah }}</td>
+                <td>{{ siswa.nama_ibu }}</td>
+                <td>{{ siswa.pekerjaan_ibu }}</td>
+                <td>{{ siswa.address_ortu }}</td>
+                <td>{{ siswa.notlp }}</td>
+                <td>{{ siswa.NISN }}</td>
+                <td>{{ siswa.kelas }}</td>
+                <td>{{ siswa.tahun_masuk }}</td>
+                <td>
+                    <button onclick="openModal('{{ siswa.NISN }}')"><i class="fas fa-edit"></i></button>
+                    <button onclick="hapusDataSiswa('{{ siswa.NISN }}')"><i class="fas fa-trash-alt"></i></button>
+                    <button onclick="daftarData('{{ siswa.NISN }}')"><i class="fas fa-user-plus"></i></button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+    <!-- bagian input jadwal mapel -->
+    {% include 'roster.html' %}
+<script src="../static/JS/datasiswa.js"></script>
+<script src="../static/JS/tambahdatasiswa.js"></script>
+<script src="../static/JS/hapus_data_siswa.js"></script>
+<script src="../static/JS/editsiswa.js"></script>
+<script src="../static/JS/registsiswa.js"></script>

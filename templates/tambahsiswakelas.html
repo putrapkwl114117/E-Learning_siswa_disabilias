@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/materi/tambahsiswakelas.css">
+</head>
+
+<body>
+
+    
+    <form action="/assign_student_to_class" method="POST" onsubmit="updateClassType(); return false;">
+        <div id="add-student-form">
+            <span class="close-btn5" onclick="closeForm()">X</span>
+            <div id="filters">
+                <label for="disability">Jenis Disabilitas</label><br>
+                <select id="disability" name="disability">
+                    <option value="all">Semua</option>
+                    <option value="tuna rungu">Tuna Rungu</option>
+                    <option value="tuna netra">Tuna Netra</option>
+                    <option value="tuna graita">Tuna Grahita</option>
+                </select><br><br>
+
+                <label for="gradeLevel">Tingkat Kelas</label><br>
+                <select id="gradeLevel" name="gradeLevel">
+                    <option value="all">Semua</option>
+                    <option value="SD 1">SD 1</option>
+                    <option value="SD 2">SD 2</option>
+                    <option value="SD 3">SD 3</option>
+                    <option value="SD 4">SD 4</option>
+                    <option value="SD 5">SD 5</option>
+                    <option value="SD 6">SD 6</option>
+                    <option value="SMP 1">SMP 1</option>
+                    <option value="SMP 2">SMP 2</option>
+                    <option value="SMP 3">SMP 3</option>
+                    <option value="SMA 1">SMA 1</option>
+                    <option value="SMA 2">SMA 2</option>
+                    <option value="SMA 3">SMA 3</option>
+                </select><br><br>
+                <div id="studentCheckboxes">
+                    <!-- Daftar siswa diisi secara dinamis oleh JavaScript -->
+                </div><br>
+
+                <label for="classId">Nama Kelas</label><br>
+                <select id="classId" name="classId">
+                    <!-- Daftar kelas diisi secara dinamis oleh JavaScript -->
+                </select><br><br>
+                <div id="filters-result">
+                    <h3>Filter</h3>
+                    <button type="button" onclick="applyFilters()">Terapkan Filter</button>
+                    <p id="filter-result-info">Filter belum diterapkan</p>
+                </div>
+                <br>
+                <input type="hidden" id="classType" name="classType">
+                <input type="submit" value="Tambahkan Siswa ke Kelas">
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
+<script src="../static/JS/tambahsiswakelas.js"></script>

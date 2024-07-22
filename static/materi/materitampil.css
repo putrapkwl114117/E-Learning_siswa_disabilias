@@ -1,0 +1,170 @@
+
+body {
+
+    overflow: hidden; /* Menghilangkan scroll dari body */
+}
+
+
+/* CSS untuk container */
+.container {
+    overflow-y: auto;
+    max-height: 20%;
+    position: fixed;
+    right: -610px;
+    display: grid; /* Menggunakan grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Mengatur dua kolom dengan lebar yang sama */
+    gap: 5px; /* Memberikan jarak antara kartu */
+    top: 22%;
+    padding: 10px; /* Menambahkan padding ke container */
+    box-sizing: border-box; /* Memastikan padding termasuk dalam ukuran container */
+    z-index: -999;
+}
+
+/* CSS untuk gaya kartu */
+.card {
+    display: flex;
+    flex-direction: column; /* Menyusun elemen dalam kartu secara vertikal */
+    height: 200px; /* Mengatur tinggi kartu agar sama */
+    background-color: #f0f0f0; /* Warna latar belakang kartu */
+    border-radius: 8px; /* Sudut lengkung pada kartu */
+    box-sizing: border-box; /* Memastikan ukuran kartu termasuk padding dan border */
+    padding: 10px; /* Memberikan padding dalam kartu */
+    margin-top: -5px; /* Menambahkan jarak atas */
+    margin-bottom: -15px; /* Menambahkan jarak bawah */
+    overflow: hidden; /* Menyembunyikan konten yang meluap */
+}
+
+.cardmenu {
+    width: 170px; /* Atur lebar kartu */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 5px;
+    background-color: #bef8a4;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+.cardmenu:hover {
+    transform: scale(1.05); /* Skala kartu saat hover */
+}
+.cardmenu:active {
+    background-color: #d7fcd4; /* Warna latar belakang saat kartu di klik */
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column; /* Mengatur arah tata letak menjadi vertikal */
+    align-items: flex-start; /* Memastikan konten berada di bagian atas */
+    position: fixed;
+    right: 10px;
+    gap: 5px; /* Memberikan jarak antara kartu */
+    top: 11%;
+    left: 74%;
+    padding: 5px; /* Menambahkan padding ke container */
+    box-sizing: border-box; /* Memastikan padding termasuk dalam ukuran container */
+    z-index: -999;
+}
+
+.cardmenu h3 {
+    font-size: 18px; /* Atur ukuran huruf */
+}
+
+.cardmenu i {
+    font-size: 18px; /* Atur ukuran ikon */
+}
+
+
+.hidden {
+    display: none;
+}
+
+.card-body {
+  overflow-y: auto; /* Mengaktifkan scroll vertikal jika konten meluap */
+  flex: 1; /* Memastikan card-body mengambil sisa ruang dalam kartu */
+}
+
+
+/* Formulir */
+#taskFormContainer {
+    position: fixed;
+    top: 28%;
+    right: 4%;
+    padding: 10px; /* Mengurangi padding */
+    background-color: #d7fcd4;
+    border: 1px solid #455c45;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.836);
+    border-radius: 5px;
+}
+
+#taskFormContainer textarea {
+    width: calc(100% - 20px); /* Mengurangi lebar dan padding */
+    padding: 6px;
+    margin-bottom: 8px; /* Mengurangi margin */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px; /* Mengurangi ukuran teks */
+    height: 150px; /* Menambahkan tinggi */
+}
+
+
+#taskFormContainer label {
+    font-weight: bold;
+    margin-bottom: 3px; /* Mengurangi margin */
+}
+
+#taskFormContainer input[type="text"],
+#taskFormContainer select,
+#taskFormContainer textarea {
+    width: calc(100% - 20px); /* Mengurangi lebar dan padding */
+    padding: 6px;
+    margin-bottom: 8px; /* Mengurangi margin */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 7px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    font-size: 14px; /* Mengurangi ukuran teks */
+}
+
+#taskFormContainer input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px; /* Mengurangi padding */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px; /* Mengurangi ukuran teks */
+}
+
+.cardmenu h3 {
+    margin: 0;
+    font-size: 16px; /* Mengurangi ukuran teks */
+}
+
+
+/* Menu Tambah Tugas */
+.cardmenu {
+    cursor: pointer;
+}
+
+.cardmenu h3 {
+    margin: 0;
+}
+
+
+
+/* Responsif: Mengatur satu kartu per baris pada layar kecil */
+@media screen and (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr; /* Mengatur satu kolom pada layar kecil */
+  }
+}
+
+.container {
+        display: flex;
+        justify-content: space-between; /* Mengatur spasi antara elemen */
+         align-items: center; /* Menyelaraskan elemen secara vertikal di tengah */
+        gap: 10px; /* Jarak antara elemen */
+}

@@ -1,0 +1,82 @@
+<link rel="stylesheet" href="../static/editdatasiswa.css">
+<!-- Modal untuk Menampilkan dan Mengedit Data Siswa -->
+{% for siswa in data_siswa %}
+<div id="myModal1{{ siswa.NISN }}" class="modal1">
+    <div class="modal-content1">
+        <span class="close-modal">&times;</span>
+        <form id="msform1{{ siswa.NISN }}" class="msform" method="POST" action="/edit-siswa">
+            <!-- Fieldsets -->
+            <fieldset>
+                <h2 class="fs-title">Data Pribadi</h2>
+                <input type="text" name="name" id="name{{ siswa.NISN }}" placeholder="Nama" autocomplete="off"
+                    value="{{ siswa.name }}" />
+                <div class="form-group">
+                    <label for="jenis_kelamin">Jenis Kelamin:</label>
+                    <select class="form-control" id="jenis_kelamin{{ siswa.NISN }}" name="jenis_kelamin" required
+                        autocomplete="off">
+                        <option value="">Pilih Jenis Kelamin</option>
+                        <option value="Laki-laki" {% if siswa.jenis_kelamin=='Laki-laki' %} selected {% endif %}>
+                            Laki-laki</option>
+                        <option value="Perempuan" {% if siswa.jenis_kelamin=='Perempuan' %} selected {% endif %}>
+                            Perempuan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ttl">Tanggal Lahir:</label>
+                    <input type="date" class="form-control" id="ttl{{ siswa.NISN }}" name="ttl" required
+                        autocomplete="off" value="{{ siswa.ttl }}" />
+                </div>
+                <input type="text" name="agama" id="agama{{ siswa.NISN }}" placeholder="Agama" required
+                    autocomplete="off" value="{{ siswa.agama }}" />
+                <textarea name="address_siswa" id="address_siswa{{ siswa.NISN }}"
+                    placeholder="Alamat">{{ siswa.address_siswa }}</textarea>
+                <div class="form-group">
+                    <label for="jenis_disabilitas">Jenis Disabilitas:</label>
+                    <select class="form-control" id="jenis_disabilitas{{ siswa.NISN }}" name="jenis_disabilitas"
+                        required autocomplete="off">
+                        <option value="">Pilih Jenis Disabilitas</option>
+                        <option value="tuna rungu" {% if siswa.jenis_disabilitas=='tuna rungu' %} selected {% endif %}>
+                            Tuna Rungu</option>
+                        <option value="tuna netra" {% if siswa.jenis_disabilitas=='tuna netra' %} selected {% endif %}>
+                            Tuna Netra</option>
+                        <option value="tuna graita" {% if siswa.jenis_disabilitas=='tuna graita' %} selected {% endif
+                            %}>Tuna Garita</option>
+                    </select>
+                </div>
+                <input type="button" name="next" class="next action-button" value="Selanjutnya" />
+            </fieldset>
+
+            <!-- Data Orang Tua -->
+            <fieldset>
+                <h2 class="fs-title">Data Orang Tua</h2>
+                <input type="text" name="nama_ayah" id="nama_ayah{{ siswa.NISN }}" placeholder="Nama Ayah" required
+                    autocomplete="off" value="{{ siswa.nama_ayah }}" />
+                <input type="text" name="pekerjaan_ayah" id="pekerjaan_ayah{{ siswa.NISN }}"
+                    placeholder="Pekerjaan Ayah" required autocomplete="off" value="{{ siswa.pekerjaan_ayah }}" />
+                <input type="text" name="nama_ibu" id="nama_ibu{{ siswa.NISN }}" placeholder="Nama Ibu" required
+                    autocomplete="off" value="{{ siswa.nama_ibu }}" />
+                <input type="text" name="pekerjaan_ibu" id="pekerjaan_ibu{{ siswa.NISN }}" placeholder="Pekerjaan Ibu"
+                    required autocomplete="off" value="{{ siswa.pekerjaan_ibu }}" /><textarea name="address_ortu"
+                    id="address_ortu{{ siswa.NISN }}" placeholder="Alamat">{{ siswa.address_ortu }}</textarea>
+                <input type="text" name="notlp" id="notlp{{ siswa.NISN }}" placeholder="082xxxxxx" required
+                    autocomplete="off" value="{{ siswa.notlp }}" />
+                <input type="button" name="previous" class="previous action-button" value="Sebelumnya" />
+                <input type="button" name="next" class="next action-button" value="Selanjutnya" />
+            </fieldset>
+            <!-- Data Akademik -->
+            <fieldset>
+                <h2 class="fs-title">Data Akademik</h2>
+                <input type="text" name="NISN" id="NISN{{ siswa.NISN }}" placeholder="NISN" required autocomplete="off"
+                    value="{{ siswa.NISN }}" />
+                <input type="text" name="kelas" id="kelas{{ siswa.NISN }}" placeholder="Kelas" required autocomplete="off"
+                    value="{{ siswa.kelas }}" />
+                <input type="text" name="tahun_masuk" id="tahun_masuk{{ siswa.NISN }}" placeholder="Tahun Masuk" required
+                    autocomplete="off" value="{{ siswa.tahun_masuk }}" />
+                <input type="button" name="previous" class="previous action-button" value="Sebelumnya" />
+                <input type="button" class="action-button" onclick="saveChanges('{{ siswa.NISN }}')" value="Simpan" />
+            </fieldset>
+        </form>
+    </div>
+</div>
+{% endfor %}
+<script src="../static/JS/datasiswa.js"></script>

@@ -1,0 +1,75 @@
+/* CSS untuk modal */
+.modal1 {
+    display: none; /* Modal akan disembunyikan secara default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* Warna latar belakang semi-transparan */
+    z-index: 99999999;
+}
+
+/* CSS untuk konten modal */
+.modal1-content {
+    background-color: #fefefe; /* Warna latar belakang konten modal */
+    margin: 7% auto; /* Atur jarak konten modal dari atas */
+    padding: 20px;
+    border: 2px solid #9aa3c7;
+    width: 30%; /* Atur lebar konten modal */
+}
+
+.close {
+    position: absolute;
+    top: 98px;
+    right: 595px;
+    font-size: 40px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* CSS untuk form registrasi */
+.simple-registration-form {
+    max-width: 400px; /* Atur lebar maksimum form */
+    margin: 0 auto; /* Pusatkan form secara horizontal */
+}
+
+/* CSS untuk grup input */
+.form-group1 {
+    margin-bottom: 20px; /* Atur jarak antara grup input */
+}
+
+/* CSS untuk input */
+.form-control {
+    width: 100%; /* Isi form 100% dari lebar grup input */
+    padding: 10px; /* Atur padding input */
+    border: 1px solid #ccc; /* Atur border input */
+    border-radius: 4px; /* Atur border-radius input */
+    box-sizing: border-box; /* Atur box-sizing input */
+}
+
+/* CSS untuk tombol register */
+.btn-primary {
+    background-color: #007bff; /* Warna latar tombol register */
+    color: #fff; /* Warna teks tombol register */
+    border: none; /* Hapus border tombol */
+    padding: 10px 20px; /* Atur padding tombol */
+    border-radius: 4px; /* Atur border-radius tombol */
+    cursor: pointer; /* Ubah kursor menjadi pointer saat diarahkan ke tombol */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Warna latar tombol saat dihover */
+}
+
+

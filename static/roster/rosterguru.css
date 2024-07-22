@@ -1,0 +1,68 @@
+/* CSS untuk kontainer dan tabel */
+.container1 {
+    padding: 20px;
+    position: relative;
+    margin-top: -57px;
+    left: 210px;
+    display: flex; /* Menggunakan flexbox untuk mengatur konten secara horizontal */
+    justify-content: center; /* Pusatkan konten horizontal */
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col {
+    flex: 1;
+    padding: 5px;
+    min-width: 250px;
+}
+
+#jadwalMapel {
+    background-color: #8ac59e71;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Membuat border lebih lekuk */
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Menambahkan shadow untuk efek menarik */
+    width: 190%; /* Mengatur lebar agar sesuai dengan konten */
+    max-width: 990px; /* Membuat batas maksimum lebar */
+    overflow: hidden; /* Menghindari tampilan yang tidak terduga di luar batas */
+}
+
+#jadwalMapel table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#jadwalMapel th, #jadwalMapel td {
+    padding: 15px; /* Menambahkan padding lebih besar */
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#jadwalMapel th {
+    background-color: #007bff;
+    color: white;
+}
+
+#jadwalMapel tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+#jadwalMapel tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+    
+    .col {
+        margin-bottom: 20px;
+    }
+}
+
+

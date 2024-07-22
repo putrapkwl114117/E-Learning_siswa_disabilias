@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membaca - Belajar untuk Anak dengan Disabilitas</title>
+    <link rel="stylesheet" href="../static/belajar/belajar.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+                .hidden {
+            display: none;
+        }
+
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .back,
+        .read-text {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back:hover,
+        .read-text:hover {
+            background-color: #45a049;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .grid-item {
+            background-color: #f9f9f9;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .grid-item:after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 0;
+            bottom: 0;
+            width: 10px;
+            background-color: #e0e0e0;
+            border-left: 1px solid #ddd;
+            transform: skewY(-45deg);
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .grid-item:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Membaca - Belajar untuk Anak dengan Disabilitas</title>
+        <link rel="stylesheet" href="../static/belajar/belajar.css">
+        <style>
+            /* Gaya CSS Anda */
+        </style>
+    </head>
+    
+    <body>
+        <div class="container">
+            <h1>Membaca - Pengenalan Huruf</h1>
+            <div id="feedback"></div>
+            <button class="read-text">Aktifkan Pembacaan</button>
+            <div class="content">
+                <p id="intro">Pengenalan huruf adalah langkah pertama dalam belajar membaca. Di sini, kita akan belajar
+                    mengenali setiap huruf dalam alfabet dengan cara yang menyenangkan dan interaktif. Ayo kita mulai!</p>
+                <h2>A - Z</h2>
+                <div class="grid-container" id="first-set">
+                    <div class="grid-item">A</div>
+                    <div class="grid-item">B</div>
+                    <div class="grid-item">C</div>
+                    <div class="grid-item">D</div>
+                    <div class="grid-item">E</div>
+                    <div class="grid-item">F</div>
+                    <div class="grid-item">G</div>
+                    <div class="grid-item">H</div>
+                    <div class="grid-item">I</div>
+                    <div class="grid-item">J</div>
+                    <div class="grid-item">K</div>
+                    <div class="grid-item">L</div>
+                    <div class="grid-item">M</div>
+                    <div class="grid-item">N</div>
+                    <div class="grid-item">O</div>
+                    <div class="grid-item">P</div>
+                    <div class="grid-item">Q</div>
+                    <div class="grid-item">R</div>
+                    <div class="grid-item">S</div>
+                    <div class="grid-item">T</div>
+                    <div class="grid-item">U</div>
+                    <div class="grid-item">V</div>
+                    <div class="grid-item">W</div>
+                    <div class="grid-item">X</div>
+                    <div class="grid-item">Y</div>
+                    <div class="grid-item">Z</div>
+                </div>
+                <button class="continue">Lanjutkan ke AIUEO</button>
+            </div>
+            <div class="content hidden" id="second-content">
+                <h2>AIUEO - ZAZIZUZEZO</h2>
+                <div class="grid-container" id="second-set">
+                    <div class="grid-item hidden">A I U E O</div>
+                    <div class="grid-item hidden">BA BI BU BE BO</div>
+                    <div class="grid-item hidden">CA CI CU CE CO</div>
+                    <div class="grid-item hidden">DA DI DU DE DO</div>
+                    <div class="grid-item hidden">EA EI EU EE EO</div>
+                    <div class="grid-item hidden">FA FI FU FE FO</div>
+                    <div class="grid-item hidden">GA GI GU GE GO</div>
+                    <div class="grid-item hidden">HA HI HU HE HO</div>
+                    <div class="grid-item hidden">IA II IU IU IE IO</div>
+                    <div class="grid-item hidden">JA JI JU JE JO</div>
+                    <div class="grid-item hidden">KA KI KU KE KO</div>
+                    <div class="grid-item hidden">LA LI LU LE LO</div>
+                    <div class="grid-item hidden">MA MI MU ME MO</div>
+                    <div class="grid-item hidden">NA NI NU NE NO</div>
+                    <div class="grid-item hidden">OA OI OU OE OO</div>
+                    <div class="grid-item hidden">PA PI PU PE PO</div>
+                    <div class="grid-item hidden">QA QI QU QE QO</div>
+                    <div class="grid-item hidden">RA RI RU RE RO</div>
+                    <div class="grid-item hidden">SA SI SU SE SO</div>
+                    <div class="grid-item hidden">TA TI TU TE TO</div>
+                    <div class="grid-item hidden">UA UI UU UE UO</div>
+                    <div class="grid-item hidden">VA VI VU VE VO</div>
+                    <div class="grid-item hidden">WA WI WU WE WO</div>
+                    <div class="grid-item hidden">XA XI XE XU XO</div>
+                    <div class="grid-item hidden">YA YI YU YE YO</div>
+                    <div class="grid-item hidden">ZA ZI ZU ZE ZO</div>
+                </div>
+                <button class="continue">Lanjutkan ke pembelajaran selanjutnya</button>
+            </div>
+            <!-- Tombol "Kembali" -->
+            <a class="back" href="/">Kembali</a>
+        </div>
+    
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+                var firstSet = document.getElementById('first-set');
+                var secondContent = document.getElementById('second-content');
+                var secondSet = document.getElementById('second-set');
+                var continueButtons = document.querySelectorAll('.continue');
+
+                // Fungsi untuk menampilkan konten setelah klik "Lanjutkan"
+                function showNextContent() {
+                    firstSet.classList.add('hidden');
+                    secondContent.classList.remove('hidden');
+                    var backButton = document.createElement('button');
+                    backButton.className = 'back-to-first';
+                    backButton.textContent = 'Kembali ke A-Z';
+                    backButton.addEventListener('click', function () {
+                        firstSet.classList.remove('hidden');
+                        secondContent.classList.add('hidden');
+                        backButton.remove();
+                    });
+                    document.querySelector('.container').insertBefore(backButton, firstSet);
+                }
+
+                // Tambahkan event listener ke setiap tombol "Lanjutkan"
+                continueButtons.forEach(function (button) {
+                    button.addEventListener('click', function () {
+                        showNextContent();
+                    });
+                });
+
+                // Di sini Anda bisa menambahkan konten untuk set kedua, seperti AIUEO-Z dan seterusnya.
+            });
+
+
+             
+
+
+
+            
+
+                // Function to handle continue button click
+                    const continueButton = document.querySelector('.continue');
+                    continueButton.addEventListener('click', function () {
+                        // Loop through grid items to find the next visible item
+                        let nextItemFound = false;
+                        gridItems.forEach(item => {
+                            if (!nextItemFound && !item.classList.contains('hidden')) {
+                                item.classList.add('hidden'); // Hide current item
+                                nextItemFound = true;
+                            } else if (nextItemFound && item.classList.contains('hidden')) {
+                                item.classList.remove('hidden'); // Show next item
+                                provideFeedback('Huruf selanjutnya.');
+                                return; // Exit the loop once next item is found
+                            }
+                        });
+                    });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const welcomeMessage = "Assisten Putra di sini. Katakan 'Aktifkan pembacaan' untuk mulai membaca, dan 'Ganti dengan kursor' untuk membaca teks saat kursor diarahkan.";
+            speak(welcomeMessage);
+        });
+
+        let isReading = false;
+        let useHover = false;
+        let isRecognitionActive = false;
+        const readButton = document.querySelector('.read-text');
+        const gridItems = document.querySelectorAll('.grid-item');
+        const introText = document.querySelector('#intro').textContent;
+
+        const utterance = new SpeechSynthesisUtterance();
+        utterance.lang = 'id-ID';
+
+        function speak(text) {
+            utterance.text = text;
+            speechSynthesis.speak(utterance);
+        }
+
+        function readHoverText(event) {
+            if (useHover && !isReading) {
+                speak(event.target.textContent);
+            }
+        }
+
+        gridItems.forEach(item => {
+            item.addEventListener('mouseenter', readHoverText);
+        });
+
+        function provideFeedback(message) {
+            const feedbackDiv = document.getElementById('feedback');
+            feedbackDiv.textContent = message;
+            speak(message); // Speak the feedback message
+            setTimeout(() => {
+                feedbackDiv.textContent = '';
+            }, 3000); // Clear feedback after 3 seconds
+        }
+
+        readButton.addEventListener('click', function () {
+                        if (!isReading) {
+                utterance.text = introText + ' ' + Array.from(gridItems).map(item => item.textContent).join('. ');
+                speechSynthesis.speak(utterance);
+                readButton.textContent = 'Nonaktifkan Pembacaan';
+                isReading = true;
+                provideFeedback('Pembacaan diaktifkan.');
+            } else {
+                speechSynthesis.cancel();
+                readButton.textContent = 'Aktifkan Pembacaan';
+                isReading = false;
+                provideFeedback('Pembacaan dinonaktifkan.');
+            }
+        });
+
+                            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+                            recognition.lang = 'id-ID';
+                            recognition.interimResults = false;
+                            recognition.maxAlternatives = 1;
+
+                            recognition.onresult = (event) => {
+                                const command = event.results[0][0].transcript.toLowerCase();
+                                if (command === 'matikan') {
+                                    speechSynthesis.cancel();
+                                    readButton.textContent = 'Aktifkan Pembacaan';
+                                    isReading = false;
+                                    useHover = false;
+                                    provideFeedback('Pembacaan dihentikan.');
+                                } else if (command === 'lanjutkan') {
+                                    if (!isReading) {
+                                        utterance.text = introText + ' ' + Array.from(gridItems).map(item => item.textContent).join('. ');
+                                        speechSynthesis.speak(utterance);
+                                        readButton.textContent = 'Nonaktifkan Pembacaan';
+                                        isReading = true;
+                                        provideFeedback('Pembacaan dilanjutkan.');
+                                    }
+                                } else if (command === 'ganti dengan kursor') {
+                                    useHover = true;
+                                    provideFeedback('Asisten akan membaca huruf saat kursor diarahkan.');
+                                }
+                            };
+
+                            recognition.onspeechend = () => {
+                                recognition.stop();
+                                isRecognitionActive = false;
+                            };
+
+                            recognition.onend = () => {
+                                if (!isRecognitionActive) {
+                                    recognition.start();
+                                    isRecognitionActive = true;
+                                }
+                            };
+
+                            window.addEventListener('load', () => {
+                                const welcomeUtterance = new SpeechSynthesisUtterance("Saya akan membantumu belajar, katakan matikan untuk berhenti menggunakan saya dan katakan lanjutkan untuk membantu anda dalam belajar. Jika anda ingin menggunakan kursor untuk membaca huruf, katakan ganti dengan kursor.");
+                                speechSynthesis.speak(welcomeUtterance);
+
+                                welcomeUtterance.onend = () => {
+                                    recognition.start();
+                                    isRecognitionActive = true;
+                                };
+                            });
+
+                            window.addEventListener('click', () => {
+                                if (!isRecognitionActive) {
+                                    recognition.start();
+                                    isRecognitionActive = true;
+                                }
+                            });
+
+                            window.addEventListener('beforeunload', () => {
+                                recognition.stop();
+                            });
+    </script>
+    </body>
+    
+    </html>

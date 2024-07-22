@@ -1,0 +1,105 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Jadwal Pelajaran</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body> -->
+<link rel="stylesheet" href="../static/admin/roster.css">
+
+<div id="myModal7" class="modal7">
+    <div class="modal-content7">
+        <!-- <span class="close7">&times;</span> -->
+        <h2>Masukan Jadwal Mapel</h2>
+        <form class="roster" action="/simpan_jadwal" method="POST">
+            <label for="namaMapel">Nama Mata Pelajaran:</label>
+            <input type="text" id="namaMapel" name="namaMapel" required>
+
+            <label for="namaGuru">Nama Guru:</label>
+            <select id="namaGuru1" name="namaGuru" required>
+                <!-- Options will be added dynamically -->
+            </select>
+            
+            <label for="kelas">Kelas:</label>
+            <select id="kelas1" name="kelas" required>
+                <!-- Options will be added dynamically -->
+            </select>
+
+            <label for="hari">Hari:</label>
+            <select id="hari" name="hari" required>
+                <option value="senin">Senin</option>
+                <option value="selasa">Selasa</option>
+                <option value="rabu">Rabu</option>
+                <option value="kamis">Kamis</option>
+                <option value="jumat">Jumat</option>
+                <option value="sabtu">Sabtu</option>
+            </select>
+
+            <label for="jamMulai">Jam Mulai:</label>
+            <input type="time" id="jamMulai" name="jamMulai" required>
+
+            <label for="jamSelesai">Jam Selesai:</label>
+            <input type="time" id="jamSelesai" name="jamSelesai" required>
+
+            <button type="submit">Simpan</button>
+        </form>
+    </div>
+</div>
+
+    <script>
+        var modal7 = document.getElementById("myModal7");
+        var btn = document.getElementById("roster");
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function () {
+            modal7.style.display = "flex";
+        }
+        window.onclick = function (event) {
+            if (event.target == modal7) {
+                modal7.style.display = "none";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+                populateGuruDropdown();
+                populateKelasDropdown();
+            });
+
+            function populateGuruDropdown() {
+                    fetch('/get_guru_data') // Panggil endpoint untuk mendapatkan data guru
+                        .then(response => response.json())
+                        .then(data => {
+                            const guruDropdown = document.getElementById('namaGuru1');
+                            guruDropdown.innerHTML = ''; // Kosongkan opsi dropdown sebelum menambahkan opsi baru
+                            data.forEach(guru => {
+                                const option = document.createElement('option');
+                                option.text = guru.nama;
+                                option.value = guru.nama;
+                                guruDropdown.add(option);
+                            });
+                        })
+                        .catch(error => console.error('Error fetching guru data:', error));
+                }
+
+
+            function populateKelasDropdown() {
+                    fetch('/form_with_dynamic_options') // Panggil endpoint untuk mendapatkan data kelas
+                        .then(response => response.json())
+                        .then(data => {
+                            const kelasDropdown = document.getElementById('kelas1');
+                            kelasDropdown.innerHTML = ''; // Kosongkan opsi dropdown sebelum menambahkan opsi baru
+                            data.forEach(kelas => {
+                                const option = document.createElement('option');
+                                option.text = kelas;
+                                option.value = kelas;
+                                kelasDropdown.add(option);
+                            });
+                        })
+                        .catch(error => console.error('Error fetching kelas data:', error));
+                }
+
+    </script>

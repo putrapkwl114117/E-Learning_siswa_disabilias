@@ -1,0 +1,117 @@
+#daftarSiswa {
+    margin-top: 75px; /* Jarak dari bagian atas layar */
+    flex: 1;
+    position: fixed;
+    left: 34px; /* Ubah ke 0 untuk memulai dari posisi awal */
+    width: calc(100% - 30px); /* Lebar awal */
+    display: flex;
+    justify-content: space-between;
+    transition: left 0.5s; /* Transisi hanya berlaku untuk properti left */
+    background-color: aliceblue;
+    overflow-x: auto;
+}
+
+#daftarSiswa.sidebar-active {
+    left: 134px;
+    margin-right: auto;
+    width: calc(93% - 30px); 
+}
+
+.container5 {
+    margin: auto;
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Style untuk tabel */
+.table5 {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Atur lebar kolom pertama dan kedua */
+.table5 th:nth-child(1),
+.table5 td:nth-child(1),
+.table5 th:nth-child(5),
+.table5 td:nth-child(5){
+    width: 200px !important;
+}
+.table5 th:nth-child(2),
+.table5 td:nth-child(2),
+.table5 th:nth-child(3),
+.table5 td:nth-child(3){
+    width: 150px !important;
+}
+.table5 th:nth-child(7),
+.table5 td:nth-child(7),
+.table5 th:nth-child(9),
+.table5 td:nth-child(9){
+    width:200px !important;
+}
+.table5 th:nth-child(16),
+.table5 td:nth-child(16){
+    width:450px !important;
+}
+
+/* Style untuk header kolom */
+.table5 th, .table5 td {
+    border: 1px solid #030307;
+    text-align: left;
+    padding: 8px;
+}
+
+/* Style untuk sel data */
+.table5 td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+/* Style untuk baris ganjil */
+.table5 tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Style untuk tombol aksi */
+.table5 td:last-child button {
+    margin-right: 5px; 
+    padding: 1px 3px;
+    font-size: 12px;
+    background-color: #0c2d50;
+    color: #fff; 
+    border: none; 
+    border-radius: 3px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+
+
+.table5 td:last-child button:hover{
+     background-color: #0056b3; 
+}
+/* Style untuk tombol edit */
+.table5 td:last-child button:nth-child(1) {
+    color: blue;
+    margin-right: 10px;
+}
+
+/* Style untuk tombol hapus */
+.table5 td:last-child button:nth-child(2) {
+    color: red;
+}
+
+.table5 th {
+    background-color: #0f3d46; 
+    color: #ffffff;
+}
+
+/* Gaya baris genap dan ganjil */
+.table5 tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Gaya saat hover pada baris */
+.table5 tbody tr:hover {
+    background-color: #8cb8aa;
+}

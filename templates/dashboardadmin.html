@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../static/beranda.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="../static/dashboardadmin.css">
+    <link rel="stylesheet" href="../static/dataguru.css">
+    <link rel="stylesheet" href="../static/beranda.css">
+    <link rel="stylesheet" href="../static/registguru.css">
+    <link rel="stylesheet" href="../static/link.css">
+    <link rel="stylesheet" href="../static/editguru.css">
+    <link rel="stylesheet" href="../static/tampildatasiswa.css">
+
+    
+   
+
+    <script src="https://cdn.userway.org/widget.js" data-account="m6NNwifJHR"></script>
+</head>
+
+<body id="body-pd" class="body-pd">
+    <header class="header" id="header">
+        <!-- End Navbar -->
+        <nav class="navbar navbar-expand-lg bg-primary" style="width: -10vw;">
+            <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+    </header>
+    
+<!-- {% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+<div class="alert alert-{{ category }}">
+    {{ message }}
+    <button onclick="shareToWhatsApp('{{ credentials_link }}')">Bagikan</button>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %} -->
+
+
+    <div class="container-fluid d-flex flex-column" style="top: 36px;">
+        <!-- Bagian atas -->
+        <div class="middle-section bg-white" style="padding: 1px;">
+            <h4 class="slide-continuous-text">
+                {% if 'username' in session %}
+                Welcome To DistStudy, {{ session['username'] }}!</h4>
+            {% endif %}
+        </div>
+    </div>
+    
+    <!-- Bagian bawah -->
+    <div class="mainbefore" style="padding: 10px;">
+        <!-- Tampilkan pesan flash -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="alert-messages">
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+        <div class="conten">
+            <!-- <h4>Selamat Datang di Diststudy
+                    <br>Edukasi yang Aksesibel untuk Semua
+                </h4> -->
+            <!-- <img src="../static/images/siswa_guru-removebg-preview.png" alt=""> -->
+        </div>
+    </div>
+
+
+<!-- {% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+<div class="alert alert-{{ category }}">
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %} -->
+
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div style="background-color: #8b8b8b;">
+                <!-- <a href="#" class="nav_logo">
+                    <i class='bx bx-layer nav_logo-icon'></i>
+                    <span class="nav_logo-name">DistStudy</span>
+                </a> -->
+                <div class="nav_list" style="background-color: #f89f4c;">
+                    <a href="#" class="nav_link active">
+                        <i class='bx bx-grid-alt nav_icon'></i>
+                        <span class="nav_name">Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="nav_list" style="background-color: #ffdfae;">
+                    <a href="#" class="nav_link admin-link" onclick="showForm()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-add"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
+                            <path
+                                d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z" />
+                        </svg>
+                        <span class="nav_name">Tambah Guru</span>
+                    </a>
+                </div>
+
+               <div class="nav_list" style="background-color: #ffffff;">
+                    <a href="#" class="nav_link" id="tambahSiswaButton">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus-fill"
+                            viewBox="0 0 16 16">
+                            <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                            <path fill-rule="evenodd"
+                                d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5" />
+                        </svg>
+                        <span class="nav_name">Tambah Siswa</span>
+                    </a>
+                </div>
+
+                    <div class="nav_list" style="background-color: #ffffff;">
+                        <a href="#" class="nav_link" id="roster">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span class="nav_name">
+                                Jadwal Mapel</span>
+                        </a>
+                    </div>
+
+                <div class="nav_list" style="background-color: #ffffff;">
+                    <a href="#" class="nav_link" id="daftarGuruButton">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-file-earmark-spreadsheet" viewBox="0 0 16 16">
+                            <path
+                                d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2V9H3V2a1 1 0 0 1 1-1h5.5zM3 12v-2h2v2zm0 1h2v2H4a1 1 0 0 1-1-1zm3 2v-2h3v2zm4 0v-2h3v1a1 1 0 0 1-1 1zm3-3h-3v-2h3zm-7 0v-2h3v2z" />
+                        </svg>
+                        <span class="nav_name">Daftar Guru</span>
+                    </a>
+                </div>
+                <div class="nav_list" style="background-color: #ffffff;">
+                    <a href="#" class="nav_link" id="daftarSiswaButton">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-file-earmark-spreadsheet" viewBox="0 0 16 16">
+                            <path
+                                d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2V9H3V2a1 1 0 0 1 1-1h5.5zM3 12v-2h2v2zm0 1h2v2H4a1 1 0 0 1-1-1zm3 2v-2h3v2zm4 0v-2h3v1a1 1 0 0 1-1 1zm3-3h-3v-2h3zm-7 0v-2h3v2z" />
+                        </svg>
+                        <span class="nav_name">Daftar Siswa</span>
+                    </a>
+                </div>
+                <div class="nav_list">
+                    <a href="#" class="nav_link"></a>
+                </div>
+            </div>
+            <div class="nav_list" style="background-color: #ffffff;">
+                <a href="/logout" class="nav_link">
+                    <i class='bx bx-log-out nav_icon'></i>
+                    <span class="nav_name">SignOut</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+    
+
+
+    <!-- Bagian form data siswa -->
+    {% include 'datasiswa.html' %}
+    
+    <!-- edit data siswa -->
+    {% include 'editsiswa.html' %}
+
+    <!-- Bagian form data siswa -->
+    {% include 'dataguru.html' %}
+
+
+    
+
+
+
+<script src="../static/JS/dashboardadmin.js"></script>
+
+    </body>
+    
+    
+    
+    </html>

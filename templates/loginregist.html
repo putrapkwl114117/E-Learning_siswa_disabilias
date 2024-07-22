@@ -1,0 +1,104 @@
+
+<div id="overlay" class="overlay" style="display: none;">
+    <div class="modal1">
+        <form id="loginForm" class="loginform" action="/login" method="POST">
+            <div class="login-container">
+                <div class="screen" id="loginScreen">
+                    <span class="close" onclick="closeOverlay()">&times;</span>
+                    <div class="screen__content">
+                        <!-- Flash Messages -->
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        <div id="flash-messages">
+                            {% for message in messages %}
+                            <div class="flash-message">{{ message }}</div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% endwith %}
+                        <div class="login__field">
+                            <i class="login__icon fas fa-user"></i>
+                            <input type="text" class="login__input" id="username_login" name="username"
+                                placeholder="User name / Email" required>
+                        </div>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-lock"></i>
+                            <input type="password" class="login__input" id="password_login" name="password"
+                                placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="button login__submit">
+                            <span class="button__text">Log In Now</span>
+                            <i class="button__icon fas fa-chevron-right"></i>
+                        </button>
+                        <p class="register-text"><strong><a href="#" onclick="showRegistrationForm()">Buat akun?</a><a
+                                    href="Lupapassword.html">Lupa Password?</a></strong></p>
+                        <div id="loginError" class="error-message" style="display: none;"></div>
+                    </div>
+                    <!-- <div class="social-login">
+                        <h3>log in via</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-login__icon fab fa-instagram"></a>
+                            <a href="#" class="social-login__icon fab fa-facebook"></a>
+                            <a href="#" class="social-login__icon fab fa-twitter"></a>
+                        </div>
+                    </div> -->
+                    <div class="screen__background">
+                        <span class="screen__background__shape screen__background__shape4"></span>
+                        <span class="screen__background__shape screen__background__shape3"></span>
+                        <span class="screen__background__shape screen__background__shape2"></span>
+                        <span class="screen__background__shape screen__background__shape1"></span>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+        <div class="screen" id="registrationScreen" style="display: none;">
+            <form id="registrationForm" class="loginform registration-form" action="/register" method="POST">
+                <!-- <div id="loading" class="loading" style="display: none;">
+                    <img src="../static/images/loading.gif" alt="Loading..." style="width: 50px; height: 100px;">
+                </div> -->
+                <div class="login-container">
+                    <span class="close" onclick="closeOverlay()">&times;</span>
+                    <div class="screen__content">
+                        {% if message %}
+                        <div>{{ message }}</div>
+                        {% endif %}
+                        <div id="registrationError" class="error-message" style="display: none;"></div>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-envelope"></i>
+                            <input type="email" class="login__input" id="email" name="email" placeholder="Email"
+                                required>
+                        </div>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-user"></i>
+                            <input type="text" class="login__input" id="username_registration" name="username"
+                                placeholder="Username" required>
+                        </div>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-lock"></i>
+                            <input type="password" class="login__input" id="password_registration" name="password"
+                                placeholder="Password" required>
+                        </div>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-lock"></i>
+                            <input type="password" class="login__input" id="confirmPassword" name="confirmPassword"
+                                placeholder="Confirm Password" required>
+                        </div>
+                        <button type="submit" class="button login__submit">
+                            <span class="button__text">Register Now</span>
+                            <i class="button__icon fas fa-chevron-right"></i>
+                        </button>
+                        <p class="register-text"><strong><a href="#" onclick="showLoginForm()">Punya akun? Log
+                                    in</a></strong></p>
+                    </div>
+                    <div class="screen__background">
+                        <span class="screen__background__shape screen__background__shape4"></span>
+                        <span class="screen__background__shape screen__background__shape3"></span>
+                        <span class="screen__background__shape screen__background__shape2"></span>
+                        <span class="screen__background__shape screen__background__shape1"></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

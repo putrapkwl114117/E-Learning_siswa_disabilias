@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="../static/css/tabelkelas.css">
+<!-- Tabel Data Kelas -->
+<div class="table-container1" id="table-container">
+    <table class="custom-table1">
+        <thead>
+            <tr>
+                <th>Nama Kelas</th>
+                <th>Jenis Kelas</th>
+                <th>Tingkatan Kelas</th>
+                <th>Jenis Disabilitas</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for kelas in kelas_data %}
+            <tr data-kelas-id="{{ kelas._id }}">
+                <td>{{ kelas.namaKelas }}</td>
+                <td>{{ kelas.jenisKelas }}</td>
+                <td>{{ kelas.tingkatKelas }}</td>
+                <td>{{ kelas.jenisDisabilitas if kelas.jenisDisabilitas else 'N/A' }}</td>
+                <td>
+                    <button class="btn1 btn-hapus" onclick="hapusKelas('{{ kelas._id }}')"><i class="fas fa-trash-alt"></i></button>
+                    <button id="tugasMenu" class="btn1 btn-edit"><i class="fas fa-edit"></i></button>
+                    <button class="btn1 btn-add-siswa" onclick="showForm()"> <i class="fas fa-user-plus"></i></button>
+                     <button class="btn1 btn-add-materi" onclick="openMateriModal('{{ kelas.tingkatKelas }}')"><i class="fas fa-book"></i></button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% include 'tambahtugas.html'%}
+{% include 'tambahmeteri.html' %}
+
+<script>
+    document.getElementById('tugasMenu').addEventListener('click', function () {
+        var taskFormContainer = document.getElementById('taskFormContainer');
+        var table = document.getElementById('table-container');
+        taskFormContainer.classList.toggle('hidden');
+        table.classList.toggle('small-table');
+    });
+</script>
+
+
+
+   
+

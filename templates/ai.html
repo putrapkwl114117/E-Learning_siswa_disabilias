@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>OpenAI Integration</title>
+    <script>
+        async function askOpenAI() {
+            const prompt = document.getElementById('prompt').value;
+            const response = await fetch('/ask', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ prompt: prompt })
+            });
+            const data = await response.json();
+            document.getElementById('response').textContent = JSON.stringify(data, null, 2);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Ask OpenAI</h1>
+    <textarea id="prompt" rows="4" cols="50"></textarea><br>
+    <button onclick="askOpenAI()">Ask</button>
+    <pre id="response"></pre>
+</body>
+
+</html>

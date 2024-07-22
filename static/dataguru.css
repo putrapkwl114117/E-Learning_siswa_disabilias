@@ -1,0 +1,91 @@
+#daftarGuru {
+    margin-top: 75px; /* Jarak dari bagian atas layar */
+    flex: 1;
+    position: fixed;
+    left: 34px; /* Ubah ke 0 untuk memulai dari posisi awal */
+    width: calc(100% - 30px); /* Lebar awal */
+    display: flex;
+    justify-content: space-between;
+    transition: left 0.5s; /* Transisi hanya berlaku untuk properti left */
+    background-color: aliceblue;
+    overflow-x: auto;
+}
+
+#daftarGuru.sidebar-active {
+    left: 134px; /* Atur jarak ke kiri saat sidebar aktif */
+    margin-right: auto;
+    width: calc(93% - 30px); /* Menyesuaikan lebar saat sidebar aktif */
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Jarak antara judul dan tabel */
+}
+
+.container4 {
+    margin: auto;
+    width: 80%;
+    overflow-x: auto;
+}
+
+.table th, .table td {
+    border: 1px solid #030307;
+    text-align: left;
+    padding: 8px;
+}
+
+.table td:nth-child(11),
+.table th:nth-child(11){
+    width: 140px;
+}
+
+.table td:nth-child(9),
+.table th:nth-child(9){
+    width: 55px;
+}
+/* Menetapkan lebar kolom untuk kolom yang ingin diubah */
+    .table th:nth-child(5), /* Mengatur lebar untuk kolom "Tingkatan" */
+    .table td:nth-child(5),
+    .table th:nth-child(6), /* Mengatur lebar untuk kolom "Waktu Abdi" */
+    .table td:nth-child(6) {
+        width: 95px; /* Ganti dengan lebar yang diinginkan */
+    }
+
+/* CSS untuk tombol aksi */
+.table td:last-child button {
+    margin-right: 2px; /* Margin kanan antara tombol */
+    padding: 5px 10px; /* Padding tombol */
+    font-size: 14px; /* Ukuran font */
+    background-color: #0c2d50; /* Warna latar belakang */
+    color: #fff; /* Warna teks */
+    border: none; /* Hapus border */
+    border-radius: 3px; /* Border radius */
+    cursor: pointer; /* Ubah kursor saat mengarahkan ke tombol */
+    transition: background-color 0.3s; /* Transisi warna latar belakang */
+}
+
+
+.table th:last-child button{
+    width: 1000px;
+}
+/* Hover effect untuk tombol aksi */
+.table td:last-child button:hover {
+    background-color: #0056b3; /* Warna latar belakang saat dihover */
+}
+.table th {
+    background-color: #0f3d46; /* Warna latar belakang judul kolom */
+    color: #ffffff;
+}
+
+/* Gaya baris genap dan ganjil */
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Gaya saat hover pada baris */
+.table tbody tr:hover {
+    background-color: #8cb8aa;
+}
+
+

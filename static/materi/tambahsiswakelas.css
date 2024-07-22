@@ -1,0 +1,127 @@
+
+/* Form Container */
+#add-student-form {
+  display: none;
+  background: rgb(143, 207, 82);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: rgb(5, 32, 1)0px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  top: -310px;
+  position: relative;
+  margin-left: -100px;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+/* Labels and Selects */
+label {
+  font-weight: bold;
+  color: #333333;
+}
+
+select {
+  width: 100%;
+  padding: 2px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  background-color: #edf7d8;
+  font-size: 20px;
+  max-height: 100px; /* Tinggi maksimum select */
+  overflow-y: auto; /* Tambahkan scroll vertikal jika konten melebihi tinggi maksimum */
+}
+
+select:focus {
+  border-color: #009879;
+  outline: none;
+}
+
+/* Filters Section */
+#filters {
+  margin-bottom: 6px;
+}
+
+#filters h3 {
+  margin-bottom: 4px;
+  color: #c1f0a1;
+}
+
+#filters-result {
+  background-color: #cffc557a;
+  padding: 6px;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+#filters-result h3 {
+    color: #ffffff;
+  margin-bottom: 5px;
+}
+
+#filter-result-info {
+  color: #a9c074;
+}
+
+/* Apply Filters Button */
+button[type="button"] {
+  background-color: #009879;
+  color: #ffffff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+button[type="button"]:hover {
+  background-color: #007965;
+}
+
+/* Submit Button */
+input[type="submit"] {
+  background-color: #3498db;
+  color: #ffffff;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  width: 100%;
+}
+
+/* Optional: Ubah tampilan tombol */
+.btn-primary {
+    background-color: #007bff; /* Warna hijau */
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-left: 420px;
+    border-radius: 4px;
+}
+
+input[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  #add-student-form {
+    padding: 15px;
+  }
+
+  select,
+  button[type="button"],
+  input[type="submit"] {
+    font-size: 0.9em;
+  }
+}

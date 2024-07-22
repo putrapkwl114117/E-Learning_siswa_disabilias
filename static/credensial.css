@@ -1,0 +1,72 @@
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #c59de6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 200px auto;
+            background-color: #190127;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 100px rgba(4, 1, 46, 0.733);
+        }
+
+        p {
+            color: #f0f0f0;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        p:after {
+            content: "";
+            display: block;
+            width: 70%; /* Mengurangi lebar garis */
+            height: 1px;
+            background-color: #ccc;
+            position: absolute;
+            bottom: -5px; /* Menggeser garis ke atas */
+            
+        }
+
+        .copy-symbol {
+            cursor: pointer;
+            position: absolute;
+            right: 170px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px; /* Perbesar ikon salin */
+            color: #007bff;
+        }
+
+        .share-icon {
+            font-size: 20px;
+            color: #007bff;
+            align-items: center;
+            transform: rotate(-25deg);
+        }
+
+        .share-btn {
+            display: inline-block;
+            background-color: #6157e7;
+            color: #042b66;
+            text-align: center;
+            padding: 5px;
+            margin: 0 auto;
+            text-decoration: none;
+            border-radius: 10px;
+            
+        }
+
+        .share-btn:hover {
+            background-color: #4d47b8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                max-width: 90%;
+                margin: 20px auto;
+            }
+        }

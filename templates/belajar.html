@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Yuk</title>
+    <link rel="stylesheet" href="../static/belajar/belajar.css">
+
+</head>
+
+<body>
+    <div class="conten111" id="content">
+        <h5>Selamat Datang di Diststudy
+            <br><br>Edukasi yang Aksesibel untuk Semua.
+            Website pembelajaran Disabilitas <br>Ramah dan Responsive.
+            Fitur navigasi suara membawamu menjelajahi dunia <br>pembelajaran yang mudah dan berkesan.
+            <br>Jika anda adalah Guru, maka management kelas <br>dan konten pembelajaran memberimu Aksi tak terhingga.
+            <br><br>Disini DistStudy Bersamamu!
+        </h5>
+      
+        <img class="dist" src="../static/images/siswa_guru-removebg-preview.png" alt="">
+    </div>
+    <button id="viewbtn" class="btn btn-success1">
+        Belajar Yuk
+    </button>
+ 
+
+
+    <div class="cards-container" id="cards-container">
+        <div class="cardb">
+            <img src="../static/images/membaca.png" alt="Membaca">
+            <div class="containerb">
+                <h2>Membaca</h2>
+                <a class="apa" href="/membaca">Mulai Belajar</a>
+            </div>
+        </div>
+
+        <div class="cardb">
+            <img src="../static/images/Menulis.png" alt="Menulis">
+            <div class="containerb">
+                <h2>Menulis</h2>
+                <a class="apa" href="#">Mulai Belajar</a>
+            </div>
+        </div>
+
+        <div class="cardb">
+            <img src="../static/images/menghitung.png" alt="Menghitung">
+            <div class="containerb">
+                <h2>Menghitung</h2>
+                <a class="apa" href="#">Mulai Belajar</a>
+            </div>
+        </div>
+
+         
+            <div class="tb">
+                <div class="panjang">Jadwal Mata Pelajaran</div>
+                <table id="jadwalMapel"></table>
+            </div>
+        
+        </div>
+<!--  -->
+
+
+<script src="../static/materi.js/materisiswa.js"></script>
+<script src="../static/materi.js/rostersiswa.js"></script>
+<script src="../static/materi/componen.js"></script>
+    <script>
+        document.getElementById('viewbtn').addEventListener('click', function () {
+                var cardsContainer = document.getElementById('cards-container');
+                var cards = document.querySelectorAll('.cardb');
+                var content = document.getElementById('content');
+
+                content.classList.add('hidden');
+                this.classList.add('hidden');
+
+                cardsContainer.style.display = 'flex';
+                cards.forEach(function (card, index) {
+                    setTimeout(function () {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                        card.classList.add('active'); // Menambahkan kelas active
+                    }, index * 100);
+                });
+            });
+
+    </script>
+</body>
+
+</html>

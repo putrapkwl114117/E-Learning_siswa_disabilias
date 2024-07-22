@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Materi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #102402;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            max-width: 1000px;
+        }
+
+        .card {
+            border: 1px solid #dddddd;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            margin-bottom: 20px;
+            overflow-y: auto;
+            max-height: 40vh;
+        }
+
+        .back{
+            position: fixed;
+            background-color: #befd91;
+            width: 100px;
+            color: #000000;
+            margin-left: -87%;
+            border: none;
+            border-radius: 5px;
+            padding: -1px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: #ebff7c;
+            margin-top: -42%;
+        }
+
+        .translate-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            margin-bottom: 20px;
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+
+        .translate-title {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .translate-content {
+            font-size: 24px;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        .read-button {
+            background-color: #befd91;
+            color: #000000;
+            border: none;
+            text-align: center;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+       .fa-arrow-left, .fa-volume-up, .fa-microphone, .fa-trash-alt{
+            color: #5a0101;
+        }
+
+        #transcribedText {
+        width: calc(100% - 15px);
+        padding: 50px 0;
+        margin-bottom: 70px;
+        font-size: 50px; /* Sesuaikan dengan ukuran yang Anda inginkan */
+    }
+    </style>
+</head>
+
+<body>
+    <button class="back"><a href="/dashboard_guru"><i class="fas fa-arrow-left"></i> Kembali</a></button>
+      
+    
+    <div class="container">
+        <div class="card" id="materiCard">
+            <h2 class="card-title" id="materiTitle"></h2>
+            <div class="card-content" id="materiContent"></div>
+            <div class="card-footer" id="materiFooter"></div>
+        </div>
+        <div class="translate-container">
+            <h2 class="translate-title">Assisten</h2>
+            <div class="translate-content" id="translateContent">
+                <input type="text" id="transcribedText" placeholder="Teks hasil transkripsi akan muncul di sini"
+                    readonly>
+                <div>
+                <button class="read-button" id="startSpeakButton"><i class="fas fa-volume-up"></i> Mulai Membaca Otomatis</button>
+                <button class="read-button" id="stopSpeakButton"><i class="fas fa-stop"></i> Hentikan</button>
+                <button class="read-button" id="startListenButton"><i class="fas fa-microphone"></i> Mulai Menulis dengan suara</button>
+                <button class="read-button" id="stopListenButton"><i class="fas fa-stop"></i> Hentikan</button>
+                <button class="read-button" id="clearButton"><i class="fas fa-trash-alt"></i> Hapus</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var params = new URLSearchParams(window.location.search);
+            var materiId = params.get("materiId");
+
+            function ambilMateriById(materiId) {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", `/ambil-materi/${materiId}`, true);
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        try {
+                            var materi = JSON.parse(xhr.responseText);
+                            tampilkanMateriLengkap(materi);
+                        } catch (error) {
+                            console.error("Gagal mengurai data materi:", error);
+                        }
+                    } else {
+                        console.error("Gagal mengambil data materi. Kode status:", xhr.status);
+                    }
+                };
+                xhr.onerror = function () {
+                    console.error("Gagal melakukan permintaan ke server.");
+                };
+                xhr.send();
+            }
+
+            // Event listener untuk tombol "Mengajar"
+            var viewButtons = document.querySelectorAll(".viewmateri");
+            viewButtons.forEach(function (button) {
+                button.addEventListener("click", function () {
+                    var materiId = button.dataset.materiId;
+                    ambilMateriById(materiId);
+                });
+            });
+
+            // Fungsi tampilkanMateriLengkap yang tetap sama
+            function tampilkanMateriLengkap(materi) {
+                document.getElementById("materiTitle").textContent = materi.judul;
+                document.getElementById("materiContent").textContent = materi.konten;
+                document.getElementById("materiFooter").textContent = "Nama Guru: " + materi.nama_guru + " | Tingkat Kelas: " + materi.tingkat_kelas;
+            }
+      
+
+            if (materiId) {
+                ambilMateriById(materiId);
+            } else {
+                console.error("Materi ID tidak ditemukan di URL.");
+            }
+
+                var synth = window.speechSynthesis;
+                var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
+                recognition.lang = 'id-ID'; // Set the language
+                recognition.interimResults = true; // Set to true if you want interim results
+                recognition.maxAlternatives = 1; // Set the maximum number of recognition results to return
+                var isListening = false; // Flag to track if speech recognition is active
+
+                recognition.volume = 0.5; // Set the volume threshold
+
+                recognition.onresult = function (event) {
+                    var transcript = event.results[0][0].transcript;
+                    document.getElementById('transcribedText').value = transcript;
+                };
+
+                recognition.onerror = function (event) {
+                    console.error('Speech recognition error:', event.error);
+                };
+
+                // Start or stop speech recognition when the button is clicked
+                document.getElementById('startListenButton').addEventListener('click', function () {
+                    recognition.start();
+                    isListening = true; // Set isListening to true when speech recognition starts
+                });
+
+                document.getElementById('stopListenButton').addEventListener('click', function () {
+                    recognition.stop();
+                    isListening = false; // Set isListening to false when speech recognition stops
+                });
+
+                // Stop reading when the stop button is clicked
+                document.getElementById('stopSpeakButton').addEventListener('click', function () {
+                    synth.cancel();
+                });
+
+                // Start text-to-speech when the start button is clicked
+            document.getElementById('startSpeakButton').addEventListener('click', function () {
+                var teks = document.getElementById("materiContent").textContent;
+                if (teks.trim() !== '') {
+                    var ucapkan = new SpeechSynthesisUtterance(teks);
+                    synth.speak(ucapkan);
+                }
+            });
+
+                // Clear transcribed text when the clear button is clicked
+                document.getElementById('clearButton').addEventListener('click', function () {
+                    document.getElementById('transcribedText').value = '';
+                });
+            });
+
+    </script>
+</body>
+
+</html>

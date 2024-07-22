@@ -1,0 +1,36 @@
+ <!-- <div id="cardsContainer" class="card-container hidden">
+        <button class="cardmenu" id="addTaskBtn">
+            <h3><i class="fas fa-pencil-alt"></i> Tambah Tugas</h3>
+        </button>
+        <div class="cardmenu">
+            <h3><i class="fas fa-tasks"></i> Kelola Tugas</h3>
+        </div>
+    </div> -->
+<link rel="stylesheet" href="../static/css/tambahtugas.css">
+<div id="taskFormContainer" class="hidden">
+    <form id="taskForm" method="POST" action="{{ url_for('tambah_tugas') }}">
+        <label for="taskName">Nama Tugas:</label>
+        <input type="text" id="taskName" name="taskName" required><br><br>
+
+        <label for="class">Kelas:</label>
+        <select id="class" name="class" required>
+            {% for kelas in kelas_data %}
+            <option value="{{ kelas._id }}">{{ kelas.namaKelas }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+        <label for="taskContent">Isi Tugas:</label><br>
+        <textarea id="taskContent" name="taskContent" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="deadline">Waktu Tenggat:</label>
+        <input type="datetime-local" id="deadline" name="deadline" required><br><br>
+
+        <input type="submit" value="Buat Tugas">
+    </form>
+</div>
+
+<!-- JavaScript untuk menangani event click pada tombol -->
+
+
+

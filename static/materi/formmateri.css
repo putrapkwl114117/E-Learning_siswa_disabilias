@@ -1,0 +1,80 @@
+/* Untuk ukuran layar yang lebih kecil */
+@media screen and (max-width: 600px) {
+    .modal-content7 {
+        width: 90%; /* Sesuaikan dengan kebutuhan */
+    }
+}
+
+/* Warna latar belakang modal */
+.modal7 {
+    display: none; /* Sembunyikan secara default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(17, 32, 16, 0.76); /* Warna latar belakang semi-transparan */
+    padding-top: 60px; /* Sesuaikan dengan kebutuhan */
+}
+
+/* Warna latar belakang formulir */
+.modal-content7 {
+    position: fixed;
+    background-color: #71ad6e; /* Warna latar belakang putih */
+    margin: 2% auto;
+    padding: 10px;
+   margin-top: -59px;
+   margin-left: 130px;
+    border-radius: 4px;
+    border: 1px solid #888;
+    width: 40%; /* Sesuaikan dengan kebutuhan */
+}
+
+/* Tata letak */
+.layout-option {
+    cursor: pointer;
+    margin-right: 10px; /* Sesuaikan dengan kebutuhan */
+}
+
+/* Warna teks yang menarik */
+#color {
+    width: 100%;
+    padding: 2px;
+    border-radius: 5px;
+    border: 1px solid #4c534b;
+    background-color: #698f60; /* Warna latar belakang yang cocok */
+}
+
+/* Ukuran form yang lebih kecil */
+.form-control {
+    width: 100%;
+    padding: 5px;
+    margin: 2px 0;
+    border: 1px solid #333a33;
+    border-radius: 4px;
+    box-sizing: border-box;
+    max-height: 50px;
+}
+
+/* Optional: Ubah tampilan tombol */
+.btn-primary {
+    background-color: #007bff; /* Warna hijau */
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 2px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-left: 420px;
+    border-radius: 4px;
+}
+
+.btn-primary:hover {
+    background-color: #45a049; /* Warna hijau yang sedikit lebih gelap saat tombol dihover */
+}

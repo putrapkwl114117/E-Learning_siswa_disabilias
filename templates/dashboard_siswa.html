@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Siswa</title>
+    <script src="https://cdn.userway.org/widget.js" data-account="m6NNwifJHR"></script>
+
+    <!-- Tambahkan link CSS Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tambahkan link CSS Font Awesome untuk ikon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        h1,
+        h2 {
+            color: #007bff;
+            text-align: center;
+        }
+
+        .card {
+            background-color: #ffebcd;
+            border: 2px solid #ffa07a;
+        }
+
+        .card-title {
+            color: #ff4500;
+        }
+
+        .card-subtitle {
+            color: #ff6347;
+        }
+
+        .list-group-item {
+            background-color: #fffacd;
+            border: 1px solid #ffebcd;
+        }
+
+        .list-group-item h6 {
+            color: #20b2aa;
+        }
+
+        .list-group-item small {
+            color: #4682b4;
+        }
+
+        .alert-info {
+            background-color: #e0ffff;
+            color: #007bff;
+            text-align: center;
+        }
+
+        .navbar {
+            background-color: #ffebcd;
+            border-bottom: 2px solid #ffa07a;
+        }
+
+        .nav-link {
+            color: #ff4500;
+        }
+
+        .nav-link:hover {
+            color: #ff6347;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Dashboard Siswa</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"  id="assistantButton"> <i class="fas fa-assistive-listening-systems"></i> Asisten Navigasi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+
+        {% if message %}
+        <div class="alert alert-info" role="alert">
+            {{ message }}
+        </div>
+        {% else %}
+        <h2 class="mb-4">Kelas Anda</h2>
+        <div class="row">
+            {% for kelas in kelas %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ kelas.namaKelas }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Materi terkait:</h6>
+                        <ul class="list-group list-group-flush">
+                            {% for materi_item in materi %}
+                            {% if materi_item.kelas_id == kelas._id %}
+                            <li class="list-group-item">
+                                <a href="#collapse{{ materi_item._id }}" data-toggle="collapse" role="button"
+                                    aria-expanded="false" aria-controls="collapse{{ materi_item._id }}">
+                                    <h6>{{ materi_item.judul }}</h6>
+                                </a>
+                                <div class="collapse" id="collapse{{ materi_item._id }}">
+                                    <p>{{ materi_item.konten }}</p>
+                                    <small>Guru: {{ materi_item.nama_guru }}</small>
+                                </div>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if tugas %}
+        <div class="container mt-5">
+            <h2>Tugas Anda</h2>
+            <ul class="list-group">
+                {% for tugas_item in tugas %}
+                <li class="list-group-item">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>{{ tugas_item.namaTugas }}</strong> - {{ tugas_item.deadline }}
+                        </div>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse"
+                            data-target="#tugasForm{{ tugas_item._id }}" aria-expanded="false"
+                            aria-controls="tugasForm{{ tugas_item._id }}">
+                            Kerjakan
+                        </button>
+                    </div>
+                    <div class="collapse mt-3" id="tugasForm{{ tugas_item._id }}">
+                        <div class="card card-body">
+                            <h6>{{ tugas_item.deskripsi }}</h6>
+                            <form>
+                                <!-- Form pengerjaan tugas -->
+                                <div class="form-group">
+                                    <label for="jawaban{{ tugas_item._id }}">Jawaban Anda</label>
+                                    <textarea class="form-control" id="jawaban{{ tugas_item._id }}" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-success">Kirim</button>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+    </div>
+
+    <!-- Tambahkan link JavaScript Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<!-- Skrip JavaScript untuk suara peringatan dan asisten navigasi -->
+<script>
+    $(document).ready(function() {
+        // Variabel global untuk menyimpan status suara
+        var speechEnabled = false;
+        var utterance = null;
+
+        // Fungsi untuk membuka dan menutup semua materi saat tombol "Asisten Navigasi" diklik
+        $('#assistantButton').click(function() {
+            $('.collapse').collapse('toggle');
+            if (speechEnabled) {
+                speechEnabled = false;
+                speak('Suara dinonaktifkan.');
+                if (utterance) {
+                    utterance.onend = null; // Menghapus listener agar tidak ada suara yang diputar lagi
+                    window.speechSynthesis.cancel(); // Menghentikan suara yang sedang diputar
+                }
+            } else {
+                speechEnabled = true;
+                speak('Asisten navigasi membantu Anda membuka materi.');
+            }
+        });
+
+        // Fungsi untuk membaca isi materi saat elemen judul materi diklik
+        $('.list-group-item a').click(function() {
+            var content = $(this).next('.collapse').find('p').text();
+            if (speechEnabled) {
+                speak(content);
+            }
+        });
+
+        // Fungsi untuk membaca deskripsi tugas saat tombol "Kerjakan" diklik
+        $('.btn-primary').click(function() {
+            var description = $(this).closest('.list-group-item').find('.card-body').text();
+            if (speechEnabled) {
+                speak(description);
+            }
+        });
+
+        // Fungsi untuk mengirim jawaban tugas dan memberikan peringatan
+        $('form').submit(function(event) {
+            event.preventDefault(); // Mencegah form untuk melakukan submit biasa
+            // Di sini Anda bisa menambahkan logika untuk mengirim jawaban ke server atau melakukan tindakan lainnya
+            if (speechEnabled) {
+                speak('Jawaban berhasil dikirim!');
+            }
+            alert('Jawaban berhasil dikirim!');
+        });
+
+        // Fungsi untuk menjalankan suara
+        function speak(text) {
+            var speech = new SpeechSynthesisUtterance();
+            speech.lang = 'id-ID'; // Atur bahasa suara sesuai kebutuhan
+            speech.text = text;
+            utterance = speech;
+            window.speechSynthesis.speak(speech);
+        }
+
+      
+    });
+</script>
+
+</body>
+
+</html>

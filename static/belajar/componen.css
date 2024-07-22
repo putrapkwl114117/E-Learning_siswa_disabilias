@@ -1,0 +1,109 @@
+ .clock {
+        position: fixed;
+        width: 55px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #2f5e3a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2), 0 -5px 5px rgba(255, 255, 255, 0.1);
+        font-size: 13px;
+        color: #fff;
+        margin-left: -20px;
+        text-align: center;
+        margin-top: -48px;
+        z-index: 999999999999999;
+        /* Adjust the margin-top to align with the calendar */
+        
+    }
+
+    .calendar-wrapper {
+        position: fixed;
+        margin-left: 50px;
+        z-index: 999999;
+        /* Adjust the margin-top to align with the clock */
+    }
+
+    .btn-primary{
+        position: fixed;
+        background-color: #2f5e3a;
+        color: #d4f7ca;
+        width: 85px;
+        margin-top: -48px;
+        padding: 3px;
+        margin-left: -120px;
+        text-align: center;
+        font-size: 14px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 99999999999999;
+    }
+
+      .btn-primary:hover {
+        background-color: #87e09c;
+         color: #d4f7ca;
+    }
+
+     .calendar-wrapper , .cal {
+        background-color: #2f5e3a;
+        color: #d4f7ca;
+        width: 100px;
+        margin-top: -48px;
+        padding: 5px;
+        text-align: center;
+        border-radius: 3px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 999999999999999;
+    }
+
+    .calendar {
+        display: none;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background-color: #4b664c;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.822);
+        transform-style: preserve-3d;
+        z-index: 9999;
+    }
+
+    .calendar.active {
+        display: block;
+    }
+
+    .calendar:hover {
+        animation: dropdown 0.3s ease;
+    }
+
+    @keyframes dropdown {
+        0% {
+            transform: translateY(-10px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    .days {
+        z-index: 999;
+        display: grid;
+        grid-template-columns: repeat(7, 30px);
+        gap: 5px;
+    }
+
+    .day {
+        z-index: 999;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+    }
+
+/* Additional styles to ensure other components shift correctly */
+

@@ -1,0 +1,172 @@
+
+.sidebar-active,.container3.sidebar-active{
+    transition: margin-right 0.3s ease;
+    margin-left: 100px; /* atau nilai sesuai dengan lebar sidebar Anda */
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    position: absolute;
+}
+
+.container3 {
+    position: relative;
+    padding: 20px;
+    margin-top: 20px;
+
+}
+
+.p-3 {
+    padding: 1rem !important;
+    border-radius: 5px;
+    text-align: center;
+    min-height: 100px; /* Menambahkan tinggi minimum untuk card */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.p-3 a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.4em;
+    display: block;
+    transition: color 0.3s;
+}
+.p-3 a:hover {
+    text-decoration: underline;
+}
+
+/* Specific Colors */
+.bg-info {
+    background-color: #17a2b8 !important;
+}
+
+.bg-primary {
+    background-color: #007bff !important;
+}
+
+.bg-success {
+    background-color: #28a745 !important;
+}
+
+.border {
+    border: 1px solid #ddd;
+}
+
+/* Dropdown Styles */
+#dropdownKelas {
+    margin-top: 10px;
+}
+
+#dropdownKelas ul {
+    list-style: none;
+    padding: 0;
+}
+
+#dropdownKelas li {
+    padding: 8px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+}
+
+#dropdownKelas li a {
+    text-decoration: none;
+    color: #333;
+}
+
+#dropdownKelas li a:hover {
+    color: #007bff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+    
+    .col {
+        margin-bottom: 20px;
+    }
+}
+
+/* Flexbox Layout */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col {
+    flex: 1;
+    padding: 10px;
+    min-width: 250px;
+}
+
+ .bg-success:hover {
+            background-color: #77c92b  !important;
+        }
+.bg-info:hover {
+            background-color: #77c92b !important;
+        }
+.bg-primary:hover {
+            background-color: #77c92b  !important;
+        }
+
+a {
+    text-decoration: none; /* Hilangkan underline pada link */
+    color: #ffffff; /* Warna teks hitam */
+}
+
+a:hover {
+    text-decoration: underline; /* Tambahkan underline saat hover */
+    color: #9eff01;
+}
+
+#dropdownKelas ul {
+    list-style-type: none;
+    padding: 0 10px;
+    margin: 10 0px;
+    background-color: #f5f8d9;
+}
+
+#dropdownKelas ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+#dropdownKelas ul li:last-child {
+    border-bottom: 0; /* Hilangkan border bawah dari elemen terakhir */
+}
+
+#dropdownKelas ul li a {
+    text-decoration: none;
+    color: #000000;
+    display: block;
+}
+
+#dropdownKelas ul li:hover {
+    background-color: #22440183;
+}
+
+.p-3:hover {
+    background-color: #f7cc11;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%; /* Lebar maksimum konten untuk perangkat mobile */
+        flex-direction: column; /* Kolom untuk perangkat mobile */
+    }
+
+    .row {
+        flex-direction: column; /* Susunan kolom untuk perangkat mobile */
+    }
+
+    .col {
+        width: 100%; /* Lebar penuh untuk kolom pada perangkat mobile */
+    }
+}
+

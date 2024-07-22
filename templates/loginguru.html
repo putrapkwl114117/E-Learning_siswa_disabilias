@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="../static/css/loginguru.css">
+
+<div id="overlay1" class="overlay1" style="display: none;">
+    <div class="modal">
+        <form id="loginForm1" class="loginform1" action="/loginguru" method="POST">
+            <div class="login-container1">
+                <div class="screen1" id="loginScreen1">
+                    <span class="close" onclick="closeOverlay1()">&times;</span>
+                    <div class="screen__content1">
+                        <!-- Flash Messages -->
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        <div id="flash-messages">
+                            {% for message in messages %}
+                            <div class="flash-message">{{ message }}</div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% endwith %}
+                        <div class="login__field">
+                            <i class="login__icon fas fa-user"></i>
+                            <input type="text" class="login__input" id="username_login" name="username"
+                                placeholder="User name / Email" required>
+                        </div>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-lock"></i>
+                            <input type="password" class="login__input" id="password_login" name="password"
+                                placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="button login__submit">
+                            <span class="button__text">Log In Now</span>
+                            <i class="button__icon fas fa-chevron-right"></i>
+                        </button>
+                        <div id="loginError" class="error-message" style="display: none;"></div>
+                    </div>
+                    
+                    <div class="screen__background">
+                        <span class="screen__background__shape screen__background__shape4"></span>
+                        <span class="screen__background__shape screen__background__shape3"></span>
+                        <span class="screen__background__shape screen__background__shape2"></span>
+                        <span class="screen__background__shape screen__background__shape1"></span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

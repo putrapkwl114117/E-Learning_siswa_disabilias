@@ -1,0 +1,49 @@
+#formContainer {
+    position: fixed;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 10px; /* Mengurangi padding menjadi 10px */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 500px; /* Menetapkan lebar maksimum */
+    text-align: center; 
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+/* Aturan untuk memperkecil panjang kolom input */
+#formContainer input[type="text"], 
+#formContainer input[type="date"],
+#formContainer input[type="email"],
+#formContainer select {
+    width: 300px; /* Menetapkan lebar kolom input */
+    margin-bottom: 10px; /* Memberi jarak bawah antara input */
+    margin-left: auto; /* Menengahkan input horizontal */
+    margin-right: auto;
+    display: block; /* Membuat input menjadi blok */
+}
+
+
+/* Aturan untuk menengahkan label */
+#formContainer label {
+    display: block; /* Membuat label menjadi blok agar dapat menerima properti margin */
+    text-align: left; /* Menyamakan teks label ke kiri */
+    margin-bottom: 5px; /* Memberi jarak bawah antara label dan input */
+    margin-left: auto; /* Menengahkan label horizontal */
+    margin-right: auto;
+    width: fit-content; 
+    width: 300px;
+    margin: 0 auto;/* Sesuaikan lebar label dengan teks di dalamnya */
+}
+

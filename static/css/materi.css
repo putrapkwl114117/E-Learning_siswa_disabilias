@@ -1,0 +1,71 @@
+/* Define styles for modal and modal content */
+.modal7 {
+    left: 0;
+    top: 0;
+    display: none;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: transparent; 
+    z-index: -999;
+}
+
+.modal-content7 {
+    position: fixed;
+    background-color: #e0d5bf;
+    margin: 10% auto; 
+    right: 10px;
+    height: 85%;
+    margin-top:56px;
+    padding: 5px;
+    width: 25%; 
+    border-radius: 3px;
+    box-shadow: 0 1 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: -2px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 2px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="color"],
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.form-group textarea {
+    resize: none; /* Optional: Remove resize handle for textarea */
+}
+
+.layout-option {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}

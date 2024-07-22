@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/kelaskonten.css">
+    <link rel="stylesheet" href="../static/roster/rosterguru.css">
+</head>
+<body>
+
+
+<div id="initialContent">
+    <div class="container3">
+            <div class="row">
+            <div class="col">
+                <div class="p-3 border bg-info">
+                    <a href="#" id="tambahKelas"><i class="fas fa-chalkboard"></i> <i class="fas fa-plus"></i> Kelas</a>
+                </div>
+                <div id="dropdownKelas" style="display: none;">
+                    <ul>
+                        <li id="kelasKhusus"><a href="#">Kelas Khusus</a></li>
+                        <li id="kelasUmum"><a href="#">Kelas Umum</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col">
+                <div class="p-3 border bg-primary" id="jadwalMapelBtn"><a href="#"><i class="fas fa-clock"></i> Mapel</a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="p-3 border bg-success"><a href="#"><i class="fas fa-user-plus"></i> <i class="fas fa-plus"></i> Siswa</a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container1 mt-5">
+        <div id="formKelas" class="formKelas">
+            <button id="closeBtn" class="btn btn-close"></button>
+            <form action="{{ url_for('add_class') }}" method="POST">
+                <div class="form-group">
+                    <label for="namaKelas">Nama Kelas</label>
+                    <input type="text" class="form-control" id="namaKelas"placeholder="Masukkan nama kelas" name="namaKelas">
+                </div>
+                <div class="form-group">
+                    <label for="namaGuru">Nama Guru</label>
+                    <select class="form-control" id="namaGuru2" name="namaGuru">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="jenisKelas">Jenis Kelas</label>
+                    <select class="form-control" id="jenisKelas" name="jenisKelas">
+                        <option value="Khusus">Khusus</option>
+                        <option value="Umum">Umum</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="tingkatKelas">Tingkat Kelas</label>
+                    <select class="form-control" id="tingkatKelas" name="tingkatKelas">
+                        {% for kelas in unique_kelas %}
+                        <option value="{{ kelas }}">{{ kelas }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </form>
+        </div>
+    </div>
+
+<!-- kelas khusus -->
+
+    <div class="container2 mt-5">
+        <div id="formKelas1" class="formKelas">
+            <button id="closeBtn1" class="btn btn-close1">X</button>
+            <form action="{{ url_for('add_class_khusus') }}" method="POST">
+                <div class="form-group">
+                    <label for="namaKelas">Nama Kelas</label>
+                    <input type="text" class="form-control" id="namaKelas" placeholder="Masukkan nama kelas"
+                        name="namaKelas">
+                </div>
+                <div class="form-group">
+                    <label for="namaGuru">Nama Guru</label>
+                    <select class="form-control" id="namaGuru1" name="namaGuru">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="jenisKelas">Jenis Kelas</label>
+                    <select class="form-control" id="jenisKelas" name="jenisKelas">
+                        <option value="Khusus">Khusus</option>
+                        <option value="Umum">Umum</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="tingkatKelas">Tingkat Kelas</label>
+                    <select class="form-control" id="tingkatKelas1" name="tingkatKelas">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="tingkatKelas">Jenis Disabilitas</label>
+                    <select class="form-control" id="jenisDisabilitas" name="jenisDisabilitas">
+                    </select>
+                </div>
+                <button type="submit" class="btn2 btn-primary">Simpan</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{% include 'tabelkelas.html' %}
+
+{% include 'tambahsiswakelas.html' %}
+
+{% include 'rosterguru.html' %}
+<script src="../static/materi/tambahmateri.js"></script>
+
+<script>
+    function toggleContent() {
+        var initialContent = document.getElementById('initialContent');
+        var kelasContent = document.getElementById('table-container');
+        var rosterTable = document.getElementById('rostertable');
+         var materiContainer = document.getElementById("daftar-materi");
+
+        if (initialContent.style.display === 'none') {
+            initialContent.style.display = 'block';
+            kelasContent.style.display = 'none';
+            rosterTable.style.display = 'block';
+            materiContainer.style.display = 'none';
+        } else {
+            initialContent.style.display = 'none';
+            kelasContent.style.display = 'block';
+            rosterTable.style.display = 'none';
+        }
+    }
+
+        function showForm() {
+                var form = document.getElementById("add-student-form"); // Dapatkan elemen formulir
+                var table = document.getElementById("table-container"); // Dapatkan elemen tabel
+
+                // Ubah lebar tabel
+                table.classList.add("small-table");
+
+                // Tampilkan formulir
+                form.style.display = "block";
+            }
+
+        // Fungsi untuk menutup formulir dan menampilkan kembali tabel dalam keadaan normal
+    function closeForm() {
+        var form = document.getElementById("add-student-form"); // Dapatkan elemen formulir
+        var table = document.getElementById("table-container"); // Dapatkan elemen tabel
+
+        // Hapus kelas 'small-table' dari elemen tabel
+        table.classList.remove("small-table");
+
+        // Sembunyikan formulir
+        form.style.display = "none";
+
+        // Tampilkan kembali tabel dalam keadaan normal
+        table.style.display = "block";
+    }
+
+    
+
+</script>
+</body>
+</html>

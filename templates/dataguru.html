@@ -1,0 +1,221 @@
+<!-- DATA GURU FORM -->
+
+<div id="overlay" class="overlay">
+    <div class="container" id="formContainer" style="display: none;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="95" height="90" fill="currentColor" class="bi bi-person-add"
+            viewBox="0 0 16 16">
+            <path
+                d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
+            <path
+                d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z" />
+        </svg>
+        <form action="/submit-data" method="post">
+            <div class="form-group">
+                <label for="nama">Nama Lengkap:</label>
+                <input type="text" class="form-control" id="nama" name="nama" required>
+            </div>
+
+            <div class="form-group">
+                <label for="ttl">Tanggal Lahir:</label>
+                <input type="date" class="form-control" id="ttl" name="ttl" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nip">NIP:</label>
+                <input type="text" class="form-control" id="nip" name="nip" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nip">Email:</label>
+                <input type="email" class="form-control" id="emailsatu" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="jenis_kelamin">Jenis Kelamin:</label>
+                <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required>
+                    <option value="">Pilih Jenis Kelamin</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="tingkatan">Tingkatan:</label>
+                <select class="form-control" id="tingkatan" name="tingkatan" required>
+                    <option value="">Pilih Tingkatan</option>
+                    <option value="SD 1">SD 1</option>
+                    <option value="SD 2">SD 2</option>
+                    <!-- Tambahkan opsi tingkatan lainnya di sini -->
+                    <option value="SMP 1">SMP 1</option>
+                    <option value="SMP 2">SMP 2</option>
+                    <!-- Tambahkan opsi tingkatan lainnya di sini -->
+                    <option value="SMA 1">SMA 1</option>
+                    <option value="SMA 2">SMA 2</option>
+                    <!-- Tambahkan opsi tingkatan lainnya di sini -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="waktu_pengabdian">Waktu Pengabdian:</label>
+                <input type="text" class="form-control" id="waktu_pengabdian" name="waktu_pengabdian" required>
+            </div>
+
+            <div class="form-group">
+                <label for="posisi">Posisi:</label>
+                <select class="form-control" id="posisi" name="posisi" required>
+                    <option value="">Pilih Posisi</option>
+                    <option value="Wali Kelas">Wali Kelas</option>
+                    <option value="Guru Umum">Guru Umum</option>
+                    <optgroup label="Guru Mata Pelajaran">
+                        <option value="IPA">IPA</option>
+                        <option value="IPS">IPS</option>
+                        <option value="Matematika">Matematika</option>
+                        <!-- Tambahkan mata pelajaran lainnya di sini -->
+                    </optgroup>
+                    <option value="Kepala Sekolah">Kepala Sekolah</option>
+                    <option value="Sekertaris">Sekertaris</option>
+                    <option value="Bendahara">Bendahara</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-secondary" id="closeForm">Close</button>
+        </form>
+    </div>
+</div>
+
+
+<!-- Tambahkan form untuk menampilkan data -->
+<div class="container4" id="daftarGuru" style="display: none;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nama Lengkap</th>
+                <th>Tanggal Lahir</th>
+                <th>NIP</th>
+                <th>JK</th>
+                <th>Tingkatan</th>
+                <th>Waktu Abdi</th>
+                <th>Posisi</th>
+                <th>Agama</th>
+                <th>Email</th>
+                <th>Alamat</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for guru in data_guru %}
+            <tr>
+                <td>{{ guru.nama }}</td>
+                <td>{{ guru.ttl }}</td>
+                <td>{{ guru.nip }}</td>
+                <td>{{ guru.jenis_kelamin }}</td>
+                <td>{{ guru.tingkatan }}</td>
+                <td>{{ guru.waktu_pengabdian }}</td>
+                <td>{{ guru.posisi }}</td>
+                <td>{{ guru.agama }}</td>
+                <td>{{ guru.email }}</td>
+                <td>{{ guru.alamat }}</td>
+                <td>
+                    <button onclick="openEditModal1('{{ guru.email }}')"><i class="fas fa-edit"></i></button>
+                    <!-- Tombol Hapus -->
+                    <button onclick="hapusData('{{ guru.nama }}')"><i class="fas fa-trash-alt"></i></button>
+                    <!-- Tombol Registrasi -->
+                    <button onclick="registrasi('{{ guru.nama }}', '{{ guru.email }}',  this)"><i
+                            class="fas fa-user-plus"></i></button>
+                    <!-- Modal form registrasi -->
+
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% for guru in data_guru %}
+<div id="overlay4" class="overlay4">
+    <div class="container3" id="formContainer4" style="display: none;">
+        <form id="editForm" action="/submit-data" method="post">
+            <div class="modal-content3">
+                <div class="form-group">
+                    <label for="edit_nama_{{ guru.email }}">Nama:</label>
+                    <input type="text" class="form-control" id="edit_nama_{{ guru.email }}" name="nama"
+                        value="{{ guru.nama }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit_ttl_{{ guru.email }}">TTL:</label>
+                    <input type="date" class="form-control" id="edit_ttl_{{ guru.email }}" name="ttl"
+                        value="{{ guru.ttl }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit_nip_{{ guru.email }}">NIP:</label>
+                    <input type="text" class="form-control" id="edit_nip_{{ guru.email }}" name="nip"
+                        value="{{ guru.nip }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit_jenis_kelamin_{{ guru.email }}">Jenis Kelamin:</label>
+                    <select class="form-control" id="edit_jenis_kelamin_{{ guru.email }}" name="jenis_kelamin" required>
+                        <option value="">Pilih Jenis Kelamin</option>
+                        <option value="Laki-laki" {% if guru.jenis_kelamin=='Laki-laki' %}selected{% endif %}>Laki-laki
+                        </option>
+                        <option value="Perempuan" {% if guru.jenis_kelamin=='Perempuan' %}selected{% endif %}>Perempuan
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit_tingkatan_{{ guru.email }}">Tingkatan:</label>
+                    <input type="text" class="form-control" id="edit_tingkatan_{{ guru.email }}" name="tingkatan"
+                        value="{{ guru.tingkatan }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit_waktu_pengabdian_{{ guru.email }}">Waktu Pengabdian:</label>
+                    <input type="text" class="form-control" id="edit_waktu_pengabdian_{{ guru.email }}"
+                        name="waktu_pengabdian" value="{{ guru.waktu_pengabdian }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit_posisi_{{ guru.email }}">Posisi:</label>
+                    <select class="form-control" id="edit_posisi_{{ guru.email }}" name="posisi" required>
+                        <option value="">Pilih Posisi</option>
+                        <option value="Wali Kelas" {% if guru.posisi=='Wali Kelas' %}selected{% endif %}>Wali Kelas
+                        </option>
+                        <option value="Guru Umum" {% if guru.posisi=='Guru Umum' %}selected{% endif %}>Guru Umum
+                        </option>
+                        <optgroup label="Guru Mata Pelajaran">
+                            <option value="IPA" {% if guru.posisi=='IPA' %}selected{% endif %}>IPA</option>
+                            <option value="IPS" {% if guru.posisi=='IPS' %}selected{% endif %}>IPS</option>
+                            <option value="Matematika" {% if guru.posisi=='Matematika' %}selected{% endif %}>Matematika
+                            </option>
+                            <!-- Tambahkan mata pelajaran lainnya di sini -->
+                        </optgroup>
+                        <option value="Kepala Sekolah" {% if guru.posisi=='Kepala Sekolah' %}selected{% endif %}>Kepala
+                            Sekolah</option>
+                        <option value="Sekertaris" {% if guru.posisi=='Sekertaris' %}selected{% endif %}>Sekertaris
+                        </option>
+                        <option value="Bendahara" {% if guru.posisi=='Bendahara' %}selected{% endif %}>Bendahara
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit_email_{{ guru.email }}">Email:</label>
+                    <input type="email" class="form-control" id="edit_email_{{ guru.email }}" name="email"
+                        value="{{ guru.email }}" readonly>
+                </div>
+
+                <button type="button" class="btn btn-primary" onclick="saveChanges1('{{ guru.email }}')">Simpan</button>
+                <button type="button" class="btn btn-secondary close3"
+                    onclick="closeModal1('{{ guru.email }}')">Close</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endfor %}
+
+
+<script src="../static/JS/editguru.js"></script>

@@ -1,0 +1,177 @@
+
+/* Table Container */
+.table-container1 {
+  width: 100%;
+  overflow-x: auto;
+  display: none;
+  margin-top: 50px;
+  align-items: center;
+  margin-left: 0;
+  padding: 20px;
+  box-shadow: 0 2px 2px rgba(29, 51, 1, 0.178);
+}
+
+/* Small Table */
+.small-table {
+    overflow-x: auto;
+    margin-left: 400px;
+    margin-top: 50px; /* Mengurangi margin-top agar tidak terlalu jauh dari elemen sebelumnya */
+    padding: 8px; /* Mengurangi padding agar tetap terlihat proporsional */
+    border-collapse: collapse; /* Agar sel-sel tabel rapat satu sama lain */
+    font-size: 12px; /* Mengurangi ukuran font untuk ukuran layar yang lebih kecil */
+
+    /* Responsif */
+    @media screen and (max-width: 768px) {
+        width: 90%; /* Lebar tabel menjadi lebih kecil saat layar menjadi kecil */
+        font-size: 12px; /* Mengurangi ukuran font lebih lanjut untuk layar yang lebih kecil */
+    }
+
+    /* Gaya sel */
+    th, td {
+        padding: 8px; /* Menyesuaikan padding untuk sel */
+        border: 1px solid #ddd; /* Memberikan border agar tabel terlihat lebih terstruktur */
+    }
+
+    /* Gaya baris genap/ganjil */
+    tr:nth-child(even) {
+        background-color: #f2f2f2; /* Memberikan latar belakang berbeda untuk baris genap */
+    }
+
+    /* Gaya header */
+    th {
+        background-color: #007bff; /* Memberikan latar belakang untuk header */
+        color: #333; /* Warna teks untuk header */
+        font-weight: bold; /* Membuat teks pada header lebih tebal */
+        text-align: left; /* Menyesuaikan penataan teks pada header */
+    }
+    .custom-table1 th,
+    .custom-table1 td {
+    min-width: 105px;
+    padding: 10px 15px;
+    font-size: 14px;
+    text-align: center;
+    }
+}
+
+
+.custom-table1{
+    border-radius: 8px;
+    background-color: #d9ffd0;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+}
+/* Custom Table Styles */
+.custom-table1 thead tr {
+  background-color: #007bff;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.custom-table1 th,
+.custom-table1 td {
+  min-width: 185px;
+  padding: 15px 20px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.custom-table1 tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.custom-table1 tbody tr:nth-of-type(even) {
+  background-color: #c3daae;
+}
+
+.custom-table1 tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+/* Style for odd rows */
+.custom-table tbody tr:nth-of-type(odd) {
+  background-color: #000000;
+}
+
+.custom-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.custom-table1 tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Button Styles */
+
+.btn1:hover{
+    background-color: #e0c040a1;
+}
+.btn1 {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 1em;
+  margin: 2px;
+}
+
+.btn-hapus {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.btn-edit {
+  background-color: #f39c12;
+  color: white;
+}
+
+.btn-add-siswa {
+  background-color: #3498db;
+  color: white;
+}
+
+.btn-add-materi {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.btn1 i {
+  margin-right: 5px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+  .custom-table1 thead {
+    display: none;
+  }
+
+  .custom-table1, .custom-table1 tbody, .custom-table1 tr, .custom-table1 td {
+    display: block;
+    width: 100%;
+  }
+
+  .custom-table1 tr {
+    margin-bottom: 15px;
+  }
+
+  .custom-table1 td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  .custom-table1 td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .btn1 {
+    width: 100%;
+    margin-top: 5px;
+  }
+}
