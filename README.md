@@ -7,6 +7,8 @@ Versi 1.0 disetujui
 
 1.1	Tujuan
 Dokumen ini bertujuan untuk menentukan persyaratan perangkat lunak untuk Perancangan dan pengembangan Aplikasi Web Media Pembelajaran Siswa Disabilita. Tujuannya adalah memberikan panduan yang jelas kepada tim pengembang tentang apa yang harus dibangun dan menyediakan dasar yang solid untuk komunikasi antara anggota tim pengembang, pemangku kepentingan, dan pihak terkait lainnya. Dokumen ini juga akan digunakan sebagai bahan acuan dalam proses pengembangan dan sebagai bahan evaluasi pada saat proses pengembangan perangkat lunak atau di akhir pengembangannya.
+
+
 1.2	Konvensi Dokumen
 Dokumen ini mengikuti standar tipografi dan format yang ditetapkan oleh Universitas Jenderal Achmad Yani Yogyakarta untuk memastikan konsistensi dan kejelasan. Adopsi konvensi ini bertujuan untuk memudahkan pembaca dalam menavigasi dokumen, memahami informasi, dan menemukan persyaratan yang relevan dengan cepat dan efisien. Berikut adalah beberapa konvensi dokumen yang diikuti:
 •	Font dan Format Teks
